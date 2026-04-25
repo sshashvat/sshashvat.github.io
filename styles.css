@@ -1,0 +1,263 @@
+:root {
+    --bg-color: #050508;
+    --card-bg: #0d0d12;
+    --text-primary: #ffffff;
+    --text-secondary: #9494a3;
+    --accent-purple: #8a63ff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    align-items: center;
+}
+nav ul { display: flex; list-style: none; gap: 2.5rem; }
+nav a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: 0.3s; }
+nav a.active, nav a:hover { color: var(--accent-purple); }
+
+/* HERO */
+.hero {
+    padding: 4rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    min-height: 70vh;
+}
+.hero-text {
+    flex: 1; /* Takes up half the space */
+    max-width: 500px;
+}
+.hero h1 { font-size: 3.5rem; line-height: 1.1; margin: 1.5rem 0; font-weight: 700; }
+.hero h1 span { color: var(--accent-purple); }
+.subtext { color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem; }
+.explore-link { color: var(--accent-purple); text-decoration: none; font-weight: 500; }
+
+/* DATA FLOW (Alignment Fixed) */
+.data-flow-container {
+    flex: 1.2;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    /* Removed background, border, and backdrop-filter */
+    background: transparent; 
+    border: none;
+    
+    /* Keep these to maintain the layout and alignment */
+    display: block; 
+    margin: 0 auto;
+    overflow: visible; /* Changed from hidden so glow effects don't clip */
+}
+.nodes.left { text-align: right; padding-right: 20px; }
+.nodes.right { text-align: left; padding-left: 20px; }
+.nodes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+.node-svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    stroke: var(--accent-purple);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px var(--accent-purple));
+}
+.node {
+    position: absolute; /* THIS IS THE KEY */
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: rgba(13, 13, 18, 0.95);
+    border: 1px solid rgba(138, 99, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 110;
+    width: auto; /* Let it grow with text */
+}
+.node:hover {
+    border-color: var(--accent-purple);
+    background: rgba(138, 99, 255, 0.1);
+    box-shadow: 0 0 15px rgba(138, 99, 255, 0.2);
+    transform: translateY(-2px);
+}
+.nodes.left .node:nth-child(1) { top: 17%; left: -1%; } /* Feedback Signals */
+.nodes.left .node:nth-child(2) { top: 50%; left: 0%; transform: translateY(-50%); } /* Usage Patterns */
+.nodes.left .node:nth-child(3) { bottom: 17%; left: 2.5%; } /* Behavior Data */
+
+/* Right Side Nodes (IMPACT) */
+.nodes.right .node:nth-child(1) { top: 17%; right: 3.5%; } /* Better Decisions */
+.nodes.right .node:nth-child(2) { top: 50%; right: -1%; transform: translateY(-50%); } /* Better Experiences */
+.nodes.right .node:nth-child(3) { bottom: 17%; right: 2.8%; } /* Better Outcomes */
+
+.user-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Remove any height/width here to prevent shifting */
+}
+.user-icon {
+    font-size: 1.8rem;
+    z-index: 102;
+    filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
+}
+.user-core::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(138, 99, 255, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.user-core .label {
+    position: absolute; /* Absolute relative to .user-core */
+    bottom: 12px;       /* Nudges it UP into the bottom of the circle */
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    z-index: 105;       /* Ensure it's on the very top */
+    pointer-events: none;
+}
+.user-icon-circle {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: var(--bg-color); /* Matches your dark background */
+    border: 2px solid var(--accent-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(138, 99, 255, 0.2);
+}
+.pulse-ring {
+    position: absolute; width: 100%; height: 100%; border: 1px solid var(--accent-purple);
+    border-radius: 50%; animation: ripple 4s linear infinite;
+}
+.pulse-ring.delay { animation-delay: 2s; }
+@keyframes ripple { 0% {transform: scale(1); opacity: 0.6;} 100% {transform: scale(2.8); opacity: 0;} }
+
+.flow-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.path-line {
+    fill: none;
+    stroke: var(--accent-purple); /* Full color instead of opacity */
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.6; /* Higher visibility */
+    filter: drop-shadow(0 0 3px rgba(138, 99, 255, 0.4)); /* Subtle glow */
+}
+.particle {
+    filter: drop-shadow(0 0 5px #fff); /* Make dots feel like light sparks */
+}
+/* SELECTED WORK */
+.work-section { padding: 4rem 10%; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.view-all { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid #1a1a24;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.project-card:hover { border-color: var(--accent-purple); transform: translateX(10px); }
+.proj-icon { font-size: 1.5rem; background: #1a1a24; padding: 15px; border-radius: 12px; }
+.proj-main h3 { margin: 0 0 0.5rem 0; }
+.proj-main p { color: var(--text-secondary); margin: 0; font-size: 0.9rem; }
+.proj-tags { display: flex; gap: 0.8rem; margin-left: auto; }
+.proj-tags span { background: #16161f; color: var(--accent-purple); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid rgba(138, 99, 255, 0.2); }
+
+/* BOTTOM GRID */
+.bottom-grid { padding: 4rem 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; border-top: 1px solid #1a1a24; }
+.thought { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+.thought p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+.about-box p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; }
+.more-link { color: var(--accent-purple); text-decoration: none; font-weight: 600; }
+
+/* FOOTER */
+footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
+.footer-links { display: flex; justify-content: space-between; }
+.footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+.column-header {
+    position: absolute;
+    top: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    z-index: 100;
+}
+.left-header { left: 5%; }
+.right-header { right: 5%; }
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 99999 !important; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(5, 5, 8, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Modal Window */
+.modal-content {
+    background-color: #0d0d12;
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid rgba(138, 99, 255, 0.3);
+    width: 80%;
+    max-width: 900px;
+    border-radius: 24px;
+    color: white;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    right: 30px; top: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #8a63ff;
+}
+
+.close-button:hover {
+    color: var(--accent-purple);
+}
