@@ -58,8 +58,12 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     margin: 0 auto;
     overflow: visible; /* Changed from hidden so glow effects don't clip */
 }
-.nodes.left { text-align: right; padding-right: 20px; }
-.nodes.right { text-align: left; padding-left: 20px; }
+.nodes.left { text-align: center; padding-right: 20px; }
+.nodes.right { 
+    text-align: center; 
+    padding-left: 20px; 
+    right: 0; /* Ensures it anchors to the right edge */
+}
 .nodes {
     position: absolute;
     width: 100%;
@@ -73,7 +77,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     margin-right: 12px;
     stroke: var(--accent-purple);
     stroke-width: 2;
-    filter: drop-shadow(0 0 5px var(--accent-purple));
+    filter: drop-shadow(0 0 3px var(--accent-purple)); /* Reduced from 5px to 3px to stop bleed */
 }
 .node {
     position: absolute; /* THIS IS THE KEY */
@@ -215,16 +219,18 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
 .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
 .column-header {
     position: absolute;
-    top: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    top: 22px; /* Adjusting height to avoid the top node's glow */
+    font-size: 1.2rem;
+    font-weight: 1000;
+    letter-spacing: 1px; /* Matches the screenshot's "spaced-out" look */
     color: var(--accent-purple);
     text-transform: uppercase;
-    z-index: 100;
+    z-index: 150; /* Higher than nodes to stay crisp */
+    pointer-events: none;
 }
-.left-header { left: 5%; }
-.right-header { right: 5%; }
+/* Perfect alignment for the headers */
+.left-header { left: 0%; text-align: left; }
+.right-header { right: 0%; text-align: right; }
 .modal {
     display: none; 
     position: fixed; 
