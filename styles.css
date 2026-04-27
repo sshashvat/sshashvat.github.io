@@ -27,7 +27,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 
 /* HERO */
 .hero {
-    padding: 4rem 10%;
+    padding: 2rem 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,8 +58,8 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     margin: 0 auto;
     overflow: visible; /* Changed from hidden so glow effects don't clip */
 }
-.nodes.left .node { left: 0; transform: translateY(-50%); }
-.nodes.right .node { right: 0; transform: translateY(-50%); }
+.nodes.left .node { left: 12%; transform: translateY(-50%); }
+.nodes.right .node { right: 12%; transform: translateY(-50%); }
 .nodes {
     position: absolute;
     width: 100%;
@@ -96,16 +96,17 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     transform: translateY(-2px);
 }
 /* Left Side Nodes (I TURN) */
-.nodes.left .node:nth-child(1) { top: 10%; left: -5%; }  /* Behavior Data */
-.nodes.left .node:nth-child(2) { top: 35%; left: -5%; transform: translateY(-50%); } /* Usage Patterns */
-.nodes.left .node:nth-child(3) { top: 65%; left: -5%; transform: translateY(-50%); } /* Feedback Signals */
-.nodes.left .node:nth-child(4) { bottom: 2%; left: -5%; } /* Business Context */
+/* Left Side Nodes (I TURN) - Squeezed Vertically */
+.nodes.left .node:nth-child(1) { top: 30%; left: 6%; transform: translateY(-50%); } /* Behavior Data */
+.nodes.left .node:nth-child(2) { top: 43%; left: 5%; transform: translateY(-50%); } /* Usage Patterns */
+.nodes.left .node:nth-child(3) { top: 57%; left: 3%; transform: translateY(-50%); } /* Feedback Signals */
+.nodes.left .node:nth-child(4) { top: 70%; left: 3%; transform: translateY(-50%); } /* Business Context */
 
-/* Right Side Nodes (INTO IMPACT) */
-.nodes.right .node:nth-child(1) { top: 10%; right: -5%; } /* Better Decisions */
-.nodes.right .node:nth-child(2) { top: 35%; right: -5%; transform: translateY(-50%); } /* Better Experiences */
-.nodes.right .node:nth-child(3) { top: 65%; right: -5%; transform: translateY(-50%); } /* Better Outcomes */
-.nodes.right .node:nth-child(4) { bottom: 2%; right: -5%; } /* Stronger Impact */
+/* Right Side Nodes (INTO IMPACT) - Squeezed Vertically */
+.nodes.right .node:nth-child(1) { top: 30%; right: 4%; transform: translateY(-50%); } /* Better Decisions */
+.nodes.right .node:nth-child(2) { top: 43%; right: 1.5%; transform: translateY(-50%); } /* Better Experiences */
+.nodes.right .node:nth-child(3) { top: 57%; right: 3.5%; transform: translateY(-50%); } /* Better Outcomes */
+.nodes.right .node:nth-child(4) { top: 70%; right: 4%; transform: translateY(-50%); } /* Stronger Impact */
 
 .user-core {
     position: absolute;
@@ -117,8 +118,8 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     flex-direction: column;
     align-items: center;/* Remove any height/width here to prevent shifting */
     justify-content: center; /* Ensures content stays vertically centered */
-    width: 80px;  /* Match the .user-icon-circle width */
-    height: 80px; /* Match the .user-icon-circle height */
+    width: 110px;  /* Match the .user-icon-circle width */
+    height: 110px; /* Match the .user-icon-circle height */
 }
 .user-icon {
     font-size: 1.8rem;
@@ -126,11 +127,13 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
 }
 .user-core .sub-label {
-    position: absolute;
-    bottom: 7px; /* Places this right at the bottom edge or just below */
+    position: relative;
+    bottom: 25px;
+    left: 2%; /* Places this right at the bottom edge or just below */
     font-size: 0.5rem;
     color: var(--text-secondary);
     white-space: nowrap;
+    margin-top: 2px; /* Small gap from the main label */
 }
 .user-core::before {
     content: '';
@@ -142,11 +145,11 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 }
 
 .user-core .label {
-    position: absolute;
-    bottom: 15px; /* Adjust this number to move the text UP into the circle */
-    left: 50%;
+    position: relative;
+    bottom: 24px; /* Adjust this number to move the text UP into the circle */
+    left: 18%;
     transform: translateX(-50%);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 900;
     letter-spacing: 2px;
     color: #ffffff;
@@ -202,7 +205,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     filter: drop-shadow(0 0 5px #fff); /* Make dots feel like light sparks */
 }
 /* SELECTED WORK */
-.work-section { padding: 4rem 10%; }
+.work-section { padding: 2rem 10%; }
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .view-all { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
 
@@ -220,6 +223,9 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     min-height: 100px; /* Ensures a consistent baseline height */
     position: relative;
     overflow: hidden;
+}
+.project-card:last-child {
+    margin-bottom: 0.5rem;
 }
 .proj-main {
     flex: 1;
@@ -253,9 +259,13 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 .proj-tags span { background: #16161f; color: var(--accent-purple); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid rgba(138, 99, 255, 0.2); }
 
 /* BOTTOM GRID */
-.bottom-grid { padding: 4rem 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; border-top: 1px solid #1a1a24; }
-.thought { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-.thought p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+.bottom-grid { 
+    padding: 2rem 10%; 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; /* Adjusted for your 4-card layout */
+    gap: 3rem; 
+    border-top: none; /* Changed from 1px solid #1a1a24 */
+}
 .about-box p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; }
 .more-link { color: var(--accent-purple); text-decoration: none; font-weight: 600; }
 
@@ -278,8 +288,8 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
     z-index: 200; /* Maximize the stack level */
 }
 /* Perfect alignment for the headers */
-.left-header { left: 0%; text-align: center; }
-.right-header { right: -5%; text-align: right; }
+.left-header { left: 11%; top: 78px; text-align: center; }
+.right-header { right: 5%; top: 78px; text-align: right; }
 .modal {
     display: none; 
     position: fixed; 
@@ -346,4 +356,110 @@ ux-placeholder {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+/* Philosophy Section Grid */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 2rem;
+}
+
+.p-card {
+    background: #0d0d12;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Color Tokens */
+.p-card.purple { --accent: #8a63ff; }
+.p-card.green { --accent: #4ade80; }
+.p-card.orange { --accent: #fb923c; }
+.p-card.blue { --accent: #3b82f6; }
+
+.p-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Icon Styles with Glow */
+.p-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent);
+    filter: drop-shadow(0 0 4px var(--accent));
+}
+
+.p-num {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+/* Typography */
+.p-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.p-desc {
+    color: #9494a3;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    min-height: 40px; /* Keeps card heights consistent */
+}
+
+/* "How I apply it" Footer */
+.p-apply {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.p-apply .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.p-apply p {
+    color: #d1d1d1;
+    font-weight: 400;
+    margin-top: 8px;
+    line-height: 1.5;
+    text-transform: none;
+}
+
+/* Hover States */
+.p-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
 }
