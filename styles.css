@@ -46,25 +46,20 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 /* DATA FLOW (Alignment Fixed) */
 .data-flow-container {
     flex: 1.2;
+    height: 500px; /* Vital for 1px = 1 unit coordinate math */
     position: relative;
-    height: 400px;
+    display: flex;
+    align-items: center;
     width: 100%;
-    /* Removed background, border, and backdrop-filter */
-    background: transparent; 
-    border: none;
-    overflow: hidden; /* This clips any stray illumination/glow on refresh */
-    isolation: isolate; /* Creates a new stacking context so glows don't leak into headers */
+    overflow: visible;
+    isolation: isolate;
     /* Keep these to maintain the layout and alignment */
     display: block; 
     margin: 0 auto;
     overflow: visible; /* Changed from hidden so glow effects don't clip */
 }
-.nodes.left { text-align: center; padding-right: 20px; }
-.nodes.right { 
-    text-align: center; 
-    padding-left: 20px; 
-    right: 0; /* Ensures it anchors to the right edge */
-}
+.nodes.left .node { left: 0; transform: translateY(-50%); }
+.nodes.right .node { right: 0; transform: translateY(-50%); }
 .nodes {
     position: absolute;
     width: 100%;
@@ -100,14 +95,17 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     box-shadow: 0 0 15px rgba(138, 99, 255, 0.2);
     transform: translateY(-2px);
 }
-.nodes.left .node:nth-child(1) { top: 17%; left: -1%; } /* Feedback Signals */
-.nodes.left .node:nth-child(2) { top: 50%; left: 0%; transform: translateY(-50%); } /* Usage Patterns */
-.nodes.left .node:nth-child(3) { bottom: 17%; left: 2.5%; } /* Behavior Data */
+/* Left Side Nodes (I TURN) */
+.nodes.left .node:nth-child(1) { top: 10%; left: -5%; }  /* Behavior Data */
+.nodes.left .node:nth-child(2) { top: 35%; left: -5%; transform: translateY(-50%); } /* Usage Patterns */
+.nodes.left .node:nth-child(3) { top: 65%; left: -5%; transform: translateY(-50%); } /* Feedback Signals */
+.nodes.left .node:nth-child(4) { bottom: 2%; left: -5%; } /* Business Context */
 
-/* Right Side Nodes (IMPACT) */
-.nodes.right .node:nth-child(1) { top: 17%; right: 3.5%; } /* Better Decisions */
-.nodes.right .node:nth-child(2) { top: 50%; right: -1%; transform: translateY(-50%); } /* Better Experiences */
-.nodes.right .node:nth-child(3) { bottom: 17%; right: 2.8%; } /* Better Outcomes */
+/* Right Side Nodes (INTO IMPACT) */
+.nodes.right .node:nth-child(1) { top: 10%; right: -5%; } /* Better Decisions */
+.nodes.right .node:nth-child(2) { top: 35%; right: -5%; transform: translateY(-50%); } /* Better Experiences */
+.nodes.right .node:nth-child(3) { top: 65%; right: -5%; transform: translateY(-50%); } /* Better Outcomes */
+.nodes.right .node:nth-child(4) { bottom: 2%; right: -5%; } /* Stronger Impact */
 
 .user-core {
     position: absolute;
@@ -117,13 +115,22 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     z-index: 100;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* Remove any height/width here to prevent shifting */
+    align-items: center;/* Remove any height/width here to prevent shifting */
+    justify-content: center; /* Ensures content stays vertically centered */
+    width: 80px;  /* Match the .user-icon-circle width */
+    height: 80px; /* Match the .user-icon-circle height */
 }
 .user-icon {
     font-size: 1.8rem;
     z-index: 102;
     filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
+}
+.user-core .sub-label {
+    position: absolute;
+    bottom: 7px; /* Places this right at the bottom edge or just below */
+    font-size: 0.5rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
 }
 .user-core::before {
     content: '';
@@ -135,15 +142,17 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 }
 
 .user-core .label {
-    position: absolute; /* Absolute relative to .user-core */
-    bottom: 12px;       /* Nudges it UP into the bottom of the circle */
+    position: absolute;
+    bottom: 15px; /* Adjust this number to move the text UP into the circle */
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 0.65rem;
     font-weight: 900;
     letter-spacing: 2px;
     color: #ffffff;
     text-transform: uppercase;
-    z-index: 105;       /* Ensure it's on the very top */
-    pointer-events: none;
+    margin: 0; /* Removes default browser spacing that pushes it out */
+    line-height: 1; /* Tightens the vertical space */
 }
 .user-icon-circle {
     position: relative;
@@ -165,6 +174,12 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 }
 .pulse-ring.delay { animation-delay: 2s; }
 @keyframes ripple { 0% {transform: scale(1); opacity: 0.6;} 100% {transform: scale(2.8); opacity: 0;} }
+@keyframes pulseFlow {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 .flow-lines {
     position: absolute;
@@ -183,6 +198,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     filter: drop-shadow(0 0 3px rgba(138, 99, 255, 0.4)); /* Subtle glow */
 }
 .particle {
+    animation: pulseFlow 2s infinite linear;
     filter: drop-shadow(0 0 5px #fff); /* Make dots feel like light sparks */
 }
 /* SELECTED WORK */
@@ -249,20 +265,21 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
 .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
 .column-header {
     position: absolute;
-    top: 22px; /* Adjusting height to avoid the top node's glow */
-    font-size: 1.2rem;
-    font-weight: 1000;
-    letter-spacing: 1px; /* Matches the screenshot's "spaced-out" look */
+    top: -30px;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 3px;
     color: var(--accent-purple);
+    background: transparent;
     text-transform: uppercase;
     pointer-events: none;
-    background: var(--bg-color); /* Add a solid background color to the text block */
+     
     padding: 2px 8px; /* Give it a tiny bit of space */
     z-index: 200; /* Maximize the stack level */
 }
 /* Perfect alignment for the headers */
-.left-header { left: 8%; text-align: left; }
-.right-header { right: 0%; text-align: right; }
+.left-header { left: 0%; text-align: center; }
+.right-header { right: -5%; text-align: right; }
 .modal {
     display: none; 
     position: fixed; 
