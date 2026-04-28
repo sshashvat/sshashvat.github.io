@@ -76,24 +76,25 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     filter: drop-shadow(0 0 1.5px var(--accent-purple)); /* Reduced from 5px to 3px to stop bleed */
 }
 .node {
-    position: absolute; /* THIS IS THE KEY */
+    position: absolute;
     display: flex;
     align-items: center;
     padding: 10px 16px;
-    background: rgba(13, 13, 18, 0.95);
-    border: 1px solid rgba(138, 99, 255, 0.2);
-    border-radius: 10px;
+    /* Solid, dark background to block out the background movement */
+    background: #0d0d12; 
+    border: 2px solid rgba(138, 99, 255, 0.4); /* Stronger purple border */
+    border-radius: 8px;
     color: #fff;
     font-size: 0.85rem;
-    white-space: nowrap;
+    font-weight: 500;
     z-index: 110;
-    width: auto; /* Let it grow with text */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Adds physical depth */
 }
 .node:hover {
-    border-color: var(--accent-purple);
-    background: rgba(138, 99, 255, 0.1);
-    box-shadow: 0 0 15px rgba(138, 99, 255, 0.2);
-    transform: translateY(-2px);
+    background: rgba(138, 99, 255, 0.15);
+    border-color: #8a63ff;
+    box-shadow: 0 0 20px rgba(138, 99, 255, 0.3);
+    transform: translateY(-2px) scale(1.02);
 }
 /* Left Side Nodes (I TURN) */
 /* Left Side Nodes (I TURN) - Squeezed Vertically */
@@ -462,4 +463,47 @@ ux-placeholder {
 .p-card:hover {
     border-color: var(--accent);
     transform: translateY(-5px);
+}
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 1rem;
+    padding: 14px 28px;
+    background: #8a63ff; /* Your Brand Purple */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Jitter-style spring */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(138, 99, 255, 0.2);
+}
+
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover States */
+.resume-btn:hover {
+    transform: translateY(-5px);
+    background: #9b7aff; /* Slightly lighter purple */
+    box-shadow: 0 15px 30px rgba(138, 99, 255, 0.4);
+}
+
+.resume-btn:hover .btn-icon {
+    animation: bounceIcon 0.6s ease infinite;
+}
+
+/* Active/Click State */
+.resume-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+@keyframes bounceIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
 }
