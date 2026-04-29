@@ -1,10 +1,40 @@
+/* ============================================================
+   TABLE OF CONTENTS
+   1.  CSS Custom Properties (Design Tokens)
+   2.  Base / Reset
+   3.  Navbar
+   4.  Hero Section
+   5.  Data Flow — Container & Layout
+   6.  Data Flow — Nodes
+   7.  Data Flow — User Core
+   8.  Data Flow — Animations & Lines
+   9.  Selected Work
+   10. Bottom Grid
+   11. Footer
+   12. Modal
+   13. Philosophy Section
+   14. Resume Button
+   15. Mobile Responsiveness  (@media ≤ 768px)
+   16. Principles Section
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
+
 :root {
-    --bg-color: #050508;
-    --card-bg: #0d0d12;
-    --text-primary: #ffffff;
+    --bg-color:       #050508;
+    --card-bg:        #0d0d12;
+    --text-primary:   #ffffff;
     --text-secondary: #9494a3;
-    --accent-purple: #8a63ff;
+    --accent-purple:  #8a63ff;
 }
+
+
+/* ============================================================
+   2. BASE / RESET
+   ============================================================ */
 
 body {
     background-color: var(--bg-color);
@@ -12,20 +42,48 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     scroll-behavior: smooth;
+
+    /* Font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-/* NAVBAR */
+
+/* ============================================================
+   3. NAVBAR
+   ============================================================ */
+
 header nav {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 10%;
     align-items: center;
+    padding: 2rem 10%;
 }
-nav ul { display: flex; list-style: none; gap: 2.5rem; }
-nav a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: 0.3s; }
-nav a.active, nav a:hover { color: var(--accent-purple); }
 
-/* HERO */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+    color: var(--accent-purple);
+}
+
+
+/* ============================================================
+   4. HERO SECTION
+   ============================================================ */
+
 .hero {
     padding: 2rem 10%;
     display: flex;
@@ -34,17 +92,44 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     gap: 60px;
     min-height: 70vh;
 }
+
 .hero-text {
     flex: 1; /* Takes up half the space */
     max-width: 500px;
 }
-.hero h1 { font-size: 3.5rem; line-height: 1.1; margin: 1.5rem 0; font-weight: 700; }
-.hero h1 span { color: var(--accent-purple); }
-.subtext { color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem; }
-.explore-link { color: var(--accent-purple); text-decoration: none; font-weight: 500; }
 
-/* DATA FLOW (Alignment Fixed) */
-/* 1. The Container: Force a stable width so Windows scrollbars don't 'push' it */
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: var(--accent-purple);
+}
+
+.subtext {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.explore-link {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/* ============================================================
+   5. DATA FLOW — CONTAINER & LAYOUT
+   ============================================================ */
+
+/*
+ * The Container: Force a stable width so Windows scrollbars
+ * don't 'push' it around.
+ */
 .data-flow-container {
     flex: 1.2;
     height: 500px;
@@ -55,6 +140,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     width: 100%;
     scrollbar-gutter: stable; /* Prevents layout shift on Windows */
 }
+
 .flow-inner-box {
     position: relative;
     width: 550px; /* Slightly wider than SVG to give nodes breathing room */
@@ -62,18 +148,54 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     margin: 0 auto;
 }
 
-/* .nodes.left .node { left: 12%; transform: translateY(-50%); } */
-/* .nodes.right .node { right: 12%; transform: translateY(-50%); } */
-.nodes.left .node { 
-    left: 0; 
-    transform: translateY(-50%); 
-    text-align: right;
+/* SVG lines — offset to center the 500px wide SVG in the 550px wrapper */
+.flow-lines {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 500px;
+    height: 500px;
+    z-index: 1;
+    pointer-events: none;
 }
-.nodes.right .node { 
-    right: 0; 
-    transform: translateY(-50%); 
-    text-align: left;
+
+.path-line {
+    fill: none;
+    stroke: var(--accent-purple);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 3px rgba(138, 99, 255, 0.4));
 }
+
+.particle {
+    animation: pulseFlow 2s infinite linear;
+    filter: drop-shadow(0 0 5px #fff); /* Light spark effect */
+}
+
+/* Column headers — pinned above each node group */
+.column-header {
+    position: absolute;
+    top: -30px;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--accent-purple);
+    background: transparent;
+    text-transform: uppercase;
+    pointer-events: none;
+    padding: 2px 8px;
+    z-index: 200;
+}
+
+.left-header  { left: 11%;  top: 78px; text-align: center; }
+.right-header { right: 5%; top: 78px; text-align: right;  }
+
+
+/* ============================================================
+   6. DATA FLOW — NODES
+   ============================================================ */
+
 .nodes {
     position: absolute;
     width: 100%;
@@ -81,44 +203,67 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     z-index: 10;
     pointer-events: none;
 }
-.node-svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 12px;
-    stroke: var(--accent-purple);
-    stroke-width: 2;
-    filter: drop-shadow(0 0 1.5px var(--accent-purple)); /* Reduced from 5px to 3px to stop bleed */
+
+/* Left node group */
+.nodes.left .node {
+    left: 0;
+    transform: translateY(-50%);
+    text-align: right;
 }
+
+/* Right node group */
+.nodes.right .node {
+    right: 0;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+/* Individual node card */
 .node {
     position: absolute;
-    transform: translateY(-50%); /* Keeps node center-aligned to line-end */
-    background: #0d0d12; 
+    transform: translateY(-50%); /* Centre-aligns node to its line-end */
+    background: #0d0d12;
     border: 2px solid rgba(138, 99, 255, 0.4);
     padding: 10px 16px;
     border-radius: 8px;
     z-index: 110;
     white-space: nowrap;
 }
+
 .node:hover {
     background: rgba(138, 99, 255, 0.15);
     border-color: #8a63ff;
     box-shadow: 0 0 20px rgba(138, 99, 255, 0.3);
     transform: translateY(-2px) scale(1.02);
 }
-/* Left Side Nodes (I TURN) */
-/* Left Side Nodes (I TURN) - Squeezed Vertically */
-.nodes.left .node { left: 0; }
+
+/* Left-side node positions (I TURN) */
 .n1 { top: 150px; }
 .n2 { top: 215px; }
 .n3 { top: 285px; }
 .n4 { top: 350px; }
 
-/* Right Side Nodes (INTO IMPACT) - Squeezed Vertically */
-.nodes.right .node { right: 0; }
+/* Right-side node positions (INTO IMPACT) */
 .n5 { top: 150px; }
 .n6 { top: 215px; }
 .n7 { top: 285px; }
 .n8 { top: 350px; }
+
+/* Node icon */
+.node-svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    stroke: var(--accent-purple);
+    stroke-width: 2;
+    /* Reduced from 5px to avoid glow bleed */
+    filter: drop-shadow(0 0 1.5px var(--accent-purple));
+}
+
+
+/* ============================================================
+   7. DATA FLOW — USER CORE (Centre Element)
+   ============================================================ */
 
 .user-core {
     position: absolute;
@@ -128,25 +273,13 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     z-index: 100;
     display: flex;
     flex-direction: column;
-    align-items: center;/* Remove any height/width here to prevent shifting */
-    justify-content: center; /* Ensures content stays vertically centered */
-    width: 110px;  /* Match the .user-icon-circle width */
-    height: 110px; /* Match the .user-icon-circle height */
+    align-items: center;
+    justify-content: center;
+    width: 110px;  /* Match .user-icon-circle width  */
+    height: 110px; /* Match .user-icon-circle height */
 }
-.user-icon {
-    font-size: 1.8rem;
-    z-index: 102;
-    filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
-}
-.user-core .sub-label {
-    position: relative;
-    bottom: 25px;
-    left: 2%; /* Places this right at the bottom edge or just below */
-    font-size: 0.5rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    margin-top: 2px; /* Small gap from the main label */
-}
+
+/* Radial glow behind the core */
 .user-core::before {
     content: '';
     position: absolute;
@@ -158,7 +291,7 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
 
 .user-core .label {
     position: relative;
-    bottom: 24px; /* Adjust this number to move the text UP into the circle */
+    bottom: 24px; /* Move text UP into the circle */
     left: 18%;
     transform: translateX(-50%);
     font-size: 0.7rem;
@@ -166,14 +299,31 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     letter-spacing: 2px;
     color: #ffffff;
     text-transform: uppercase;
-    margin: 0; /* Removes default browser spacing that pushes it out */
-    line-height: 1; /* Tightens the vertical space */
+    margin: 0;    /* Remove default browser spacing */
+    line-height: 1;
 }
+
+.user-core .sub-label {
+    position: relative;
+    bottom: 25px;
+    left: 2%;
+    font-size: 0.5rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+.user-icon {
+    font-size: 1.8rem;
+    z-index: 102;
+    filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
+}
+
 .user-icon-circle {
     position: relative;
     width: 80px;
     height: 80px;
-    background: var(--bg-color); /* Matches your dark background */
+    background: var(--bg-color);
     border: 2px solid var(--accent-purple);
     border-radius: 50%;
     display: flex;
@@ -181,73 +331,95 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     justify-content: center;
     box-shadow: 0 0 20px rgba(138, 99, 255, 0.2);
 }
+
+/* Pulse rings */
 .pulse-ring {
-    position: absolute; width: 100%; height: 100%; border: 1px solid var(--accent-purple);
-    border-radius: 50%; animation: ripple 4s linear infinite;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent-purple);
+    border-radius: 50%;
+    animation: ripple 4s linear infinite;
+    animation-fill-mode: backwards; /* Start at 0% state immediately */
     will-change: transform, opacity;
-    animation-fill-mode: backwards; /* Ensures the ring starts at 0% state immediately */
 }
-.pulse-ring.delay { animation-delay: 2s; }
-@keyframes ripple { 0% {transform: scale(1); opacity: 0.6;} 100% {transform: scale(2.8); opacity: 0;} }
+
+.pulse-ring.delay {
+    animation-delay: 2s;
+}
+
+
+/* ============================================================
+   8. DATA FLOW — ANIMATIONS
+   ============================================================ */
+
+@keyframes ripple {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    100% { transform: scale(2.8); opacity: 0;   }
+}
+
 @keyframes pulseFlow {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
+    0%   { opacity: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
     100% { opacity: 0; }
 }
 
-/* .flow-lines { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}*/
-.flow-lines {
-    position: absolute;
-    top: 0;
-    left: 25px; /* Offset to center the 500px wide SVG in 550px wrapper */
-    width: 500px;
-    height: 500px;
-    z-index: 1;
-    pointer-events: none;
-}
-.path-line {
-    fill: none;
-    stroke: var(--accent-purple); /* Full color instead of opacity */
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    opacity: 0.6; /* Higher visibility */
-    filter: drop-shadow(0 0 3px rgba(138, 99, 255, 0.4)); /* Subtle glow */
-}
-.particle {
-    animation: pulseFlow 2s infinite linear;
-    filter: drop-shadow(0 0 5px #fff); /* Make dots feel like light sparks */
-}
-/* SELECTED WORK */
-.work-section { padding: 2rem 10%; }
-.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-.view-all { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
 
+/* ============================================================
+   9. SELECTED WORK
+   ============================================================ */
+
+.work-section {
+    padding: 2rem 10%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.view-all {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Project card */
 .project-card {
     background: var(--card-bg);
     border: 1px solid #1a1a24;
     border-radius: 16px;
     padding: 1.5rem 2rem;
     display: flex;
-    align-items: center; /* This keeps everything vertically centered */
+    align-items: center;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     transition: 0.3s;
     cursor: pointer;
-    min-height: 100px; /* Ensures a consistent baseline height */
+    min-height: 100px;
     position: relative;
     overflow: hidden;
 }
+
 .project-card:last-child {
     margin-bottom: 0.5rem;
 }
+
+.project-card:hover {
+    border-color: var(--accent-purple);
+    transform: translateX(10px);
+}
+
+.proj-icon {
+    font-size: 1.5rem;
+    background: #1a1a24;
+    padding: 15px;
+    border-radius: 12px;
+}
+
 .proj-main {
     flex: 1;
     display: flex;
@@ -274,54 +446,80 @@ nav a.active, nav a:hover { color: var(--accent-purple); }
     justify-content: flex-end;
 }
 
-.project-card:hover { border-color: var(--accent-purple); transform: translateX(10px); }
-.proj-icon { font-size: 1.5rem; background: #1a1a24; padding: 15px; border-radius: 12px; }
-
-.proj-tags span { background: #16161f; color: var(--accent-purple); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid rgba(138, 99, 255, 0.2); }
-
-/* BOTTOM GRID */
-.bottom-grid { 
-    padding: 2rem 10%; 
-    display: grid; 
-    grid-template-columns: 1.5fr 1fr; /* Adjusted for your 4-card layout */
-    gap: 3rem; 
-    border-top: none; /* Changed from 1px solid #1a1a24 */
-}
-.about-box p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; }
-.more-link { color: var(--accent-purple); text-decoration: none; font-weight: 600; }
-
-/* FOOTER */
-footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
-.footer-links { display: flex; justify-content: space-between; }
-.footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
-.column-header {
-    position: absolute;
-    top: -30px;
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: 3px;
+.proj-tags span {
+    background: #16161f;
     color: var(--accent-purple);
-    background: transparent;
-    text-transform: uppercase;
-    pointer-events: none;
-     
-    padding: 2px 8px; /* Give it a tiny bit of space */
-    z-index: 200; /* Maximize the stack level */
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(138, 99, 255, 0.2);
 }
-/* Perfect alignment for the headers */
-.left-header { left: 11%; top: 78px; text-align: center; }
-.right-header { right: 5%; top: 78px; text-align: right; }
+
+
+/* ============================================================
+   10. BOTTOM GRID
+   ============================================================ */
+
+.bottom-grid {
+    padding: 2rem 10%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* 4-card layout */
+    gap: 3rem;
+    border-top: none;
+}
+
+.about-box p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.more-link {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+
+footer {
+    padding: 3rem 10%;
+    border-top: 1px solid #1a1a24;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   12. MODAL
+   ============================================================ */
+
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 99999 !important; 
-    left: 0; top: 0;
-    width: 100%; height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 99999 !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(5, 5, 8, 0.95);
     backdrop-filter: blur(10px);
 }
 
-/* Modal Window */
+/* Modal window */
 .modal-content {
     background-color: #0d0d12;
     margin: 5% auto;
@@ -335,10 +533,11 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
     overflow-y: auto;
 }
 
-/* Close Button */
+/* Close button */
 .close-button {
     position: absolute;
-    right: 30px; top: 20px;
+    right: 30px;
+    top: 20px;
     font-size: 35px;
     cursor: pointer;
     color: #8a63ff;
@@ -347,6 +546,8 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
 .close-button:hover {
     color: var(--accent-purple);
 }
+
+/* Resource link button */
 .resource-btn {
     padding: 10px 18px;
     background: #16161e;
@@ -358,12 +559,15 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
     font-weight: 500;
     transition: 0.2s;
 }
+
 .resource-btn:hover {
     border-color: var(--accent-purple);
     background: rgba(138, 99, 255, 0.1);
 }
+
+/* UX placeholder (mobile phone shape) */
 ux-placeholder {
-    aspect-ratio: 9/16; /* Mobile phone shape */
+    aspect-ratio: 9/16;
     background: #1a1a24;
     border: 1px dashed #333;
     border-radius: 16px;
@@ -373,12 +577,18 @@ ux-placeholder {
     font-size: 0.8rem;
     overflow: hidden;
 }
+
 .ux-placeholder img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-/* Philosophy Section Grid */
+
+
+/* ============================================================
+   13. PHILOSOPHY SECTION
+   ============================================================ */
+
 .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -387,6 +597,7 @@ ux-placeholder {
     width: 100%;
 }
 
+/* Philosophy card */
 .p-card {
     background: #0d0d12;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -397,12 +608,18 @@ ux-placeholder {
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Color Tokens */
-.p-card.purple { --accent: #8a63ff; }
-.p-card.green { --accent: #4ade80; }
-.p-card.orange { --accent: #fb923c; }
-.p-card.blue { --accent: #3b82f6; }
+.p-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
 
+/* Per-card colour tokens */
+.p-card.purple { --accent: #8a63ff; }
+.p-card.green  { --accent: #4ade80; }
+.p-card.orange { --accent: #fb923c; }
+.p-card.blue   { --accent: #3b82f6; }
+
+/* Card header row */
 .p-header {
     display: flex;
     justify-content: space-between;
@@ -410,7 +627,7 @@ ux-placeholder {
     margin-bottom: 20px;
 }
 
-/* Icon Styles with Glow */
+/* Icon with glow */
 .p-icon {
     width: 48px;
     height: 48px;
@@ -436,7 +653,7 @@ ux-placeholder {
     opacity: 0.8;
 }
 
-/* Typography */
+/* Card typography */
 .p-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.15rem;
@@ -452,7 +669,7 @@ ux-placeholder {
     min-height: 40px; /* Keeps card heights consistent */
 }
 
-/* "How I apply it" Footer */
+/* "How I apply it" footer */
 .p-apply {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 16px;
@@ -480,35 +697,29 @@ ux-placeholder {
     text-transform: none;
 }
 
-/* Hover States */
-.p-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-5px);
-}
+
+/* ============================================================
+   14. RESUME BUTTON
+   ============================================================ */
+
 .resume-btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     margin-top: 1rem;
     padding: 14px 28px;
-    background: #8a63ff; /* Your Brand Purple */
+    background: #8a63ff; /* Brand purple */
     color: #fff;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     border-radius: 14px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Jitter-style spring */
+    /* Spring easing */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(138, 99, 255, 0.2);
 }
 
-.btn-icon svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
-}
-
-/* Hover States */
 .resume-btn:hover {
     transform: translateY(-5px);
     background: #9b7aff; /* Slightly lighter purple */
@@ -519,22 +730,28 @@ ux-placeholder {
     animation: bounceIcon 0.6s ease infinite;
 }
 
-/* Active/Click State */
 .resume-btn:active {
     transform: translateY(0) scale(0.95);
 }
 
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
 @keyframes bounceIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(3px); }
+    0%, 100% { transform: translateY(0);  }
+    50%       { transform: translateY(3px); }
 }
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-/* MOBILE RESPONSIVENESS */
+
+
+/* ============================================================
+   15. MOBILE RESPONSIVENESS (@media ≤ 768px)
+   ============================================================ */
+
 @media screen and (max-width: 768px) {
+
     /* 1. Layout Fundamentals */
     .hero {
         flex-direction: column;
@@ -552,7 +769,7 @@ body {
         margin: 1rem 0;
     }
 
-    /* 2. The Flow Redesign */
+    /* 2. Flow Container */
     .data-flow-container {
         height: auto;
         padding-bottom: 40px;
@@ -560,7 +777,7 @@ body {
 
     .flow-inner-box {
         width: 100%;
-        max-width: 340px; /* Keeps it tight on small screens */
+        max-width: 340px; /* Tight on small screens */
         height: auto;
         display: flex;
         flex-direction: column;
@@ -568,7 +785,7 @@ body {
         position: relative;
     }
 
-    /* Create a single vertical connecting line */
+    /* Single vertical connecting line via pseudo-element */
     .flow-inner-box::before {
         content: '';
         position: absolute;
@@ -576,17 +793,20 @@ body {
         bottom: 0;
         left: 50%;
         width: 2px;
-        background: linear-gradient(to bottom, 
-            transparent, 
-            var(--accent-purple) 15%, 
-            var(--accent-purple) 85%, 
-            transparent);
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--accent-purple) 15%,
+            var(--accent-purple) 85%,
+            transparent
+        );
         z-index: 0;
         opacity: 0.3;
     }
 
     /* 3. Node Adjustments */
-    .nodes.left, .nodes.right {
+    .nodes.left,
+    .nodes.right {
         position: static;
         display: flex;
         flex-direction: column;
@@ -604,7 +824,7 @@ body {
         padding: 12px 16px;
         font-size: 0.9rem;
         border: 1px solid rgba(138, 99, 255, 0.3);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     .node-svg {
@@ -612,7 +832,7 @@ body {
         height: 16px;
     }
 
-    /* 4. The User Core "Station" */
+    /* 4. User Core "Station" */
     .user-core {
         position: relative !important;
         top: auto !important;
@@ -624,7 +844,7 @@ body {
         z-index: 3;
     }
 
-    /* 5. Section Headers for Mobile */
+    /* 5. Section Headers */
     .column-header {
         position: relative;
         top: auto !important;
@@ -633,27 +853,33 @@ body {
         text-align: center;
         margin-bottom: 20px;
         font-size: 0.8rem;
-        display: block; /* Bring them back but style them for mobile */
+        display: block;
     }
 
     .right-header {
         margin-top: 30px;
     }
 
-    /* 6. Hide the SVG lines (we replaced them with the CSS ::before line) */
+    /* 6. Hide SVG lines — replaced by CSS ::before line */
     .flow-lines {
         display: none;
     }
 }
-/* 1. Reduce space after the header */
+
+
+/* ============================================================
+   16. PRINCIPLES SECTION
+   ============================================================ */
+
+/* Reduce space below the section heading */
 .principles-section .section-header h2 {
-    margin-bottom: 1rem; /* Reduced from 2.5rem */
+    margin-bottom: 1rem;
     font-size: 2rem;
     color: var(--text-primary);
 }
 
-/* 2. Tighten the overall section padding if needed */
+/* Control space above the section */
 .principles-section {
     width: 100%;
-    margin-top: 1rem; /* Controls space above the header */
+    margin-top: 1rem;
 }
