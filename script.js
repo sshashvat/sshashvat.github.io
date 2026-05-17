@@ -56,43 +56,15 @@ window.addEventListener('DOMContentLoaded', () => {
 `
 },
         "ridemaster": {
-        title: "Ridemaster: Real-Time Group Awareness",
-        content: `
-            <div class="modal-header" style="border-bottom: 1px solid rgba(138, 99, 255, 0.2); padding-bottom: 20px;">
-                <h2 style="margin: 0; color: #fff;">Ridemaster</h2>
-                <p style="color: #8a63ff; margin-top: 5px; font-weight: 500;">Real-Time Group Awareness & Safety System</p>
+            title: "Ridemaster Case Study",
+            content: `
+            <div style="width: 100%; height: 83vh; display: flex; flex-direction: column; overflow: hidden;">
+                <iframe src="ridemaster-final.html" 
+                        style="width: 100%; height: 100%; border: none; border-radius: 12px; background: #050508; flex-grow: 1;">
+                </iframe>
             </div>
-
-            <div style="margin-top: 30px; background: rgba(138, 99, 255, 0.05); padding: 20px; border-radius: 16px; border-left: 4px solid var(--accent-purple);">
-                <h4 style="color: #fff; margin-top: 0;">Problem Statement</h4>
-                <p style="color: #ccc; line-height: 1.6; font-size: 0.95rem;">
-                    Riders in groups often lose track of each other due to varying speeds and traffic, leading to 
-                    <strong>"The Rubber Band Effect."</strong> Current solutions (voice calls/text) are dangerous 
-                    while riding. Ridemaster provides non-intrusive awareness to keep the group connected and safe.
-                </p>
-            </div>
-
-            <div style="display: flex; gap: 10px; margin: 25px 0; flex-wrap: wrap;">
-                <a href="#" class="resource-btn">📄 PRD</a>
-                <a href="#" class="resource-btn">🗺️ Roadmap</a>
-                <a href="#" class="resource-btn">⚡ Execution Plan</a>
-                <a href="#" class="resource-btn">📊 Metrics Deck</a>
-            </div>
-
-            <h4 style="color: #fff; margin-bottom: 15px;">Mobile UX Concepts</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px;">
-                <div class="ux-placeholder">
-                    <span style="color: #444;">[Mobile UI 1]</span>
-                </div>
-                <div class="ux-placeholder">
-                    <span style="color: #444;">[Mobile UI 2]</span>
-                </div>
-                <div class="ux-placeholder">
-                    <span style="color: #444;">[Mobile UI 3]</span>
-                </div>
-            </div>
-        `
-    }
+            `
+        }
     };
 
     const modal = document.getElementById("projectModal");

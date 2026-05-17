@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridemaster — Shashvat Suhane</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="ridemasterv3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">SS</div>
+        <ul>
+            <li><a href="index.html#work" class="active">Work</a></li>
+            <li><a href="index.html#thinking">Thinking</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="mailto:sshashvat.296@gmail.com">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="cs-main">
+
+    <a href="index.html" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg>
+        Back to work
+    </a>
+
+    <div class="cs-hero">
+        <div class="cs-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="14" cy="9" r="3.5"/>
+                <path d="M7 22c0-3.866 3.134-7 7-7s7 3.134 7 7"/>
+                <circle cx="4.5" cy="11" r="2.2" stroke="rgba(138,99,255,0.5)"/>
+                <circle cx="23.5" cy="11" r="2.2" stroke="rgba(138,99,255,0.5)"/>
+                <path d="M2.5 19c0-1.6 1-2.8 2.4-3.2" stroke="rgba(138,99,255,0.4)" stroke-dasharray="2 1.5"/>
+                <path d="M25.5 19c0-1.6-1-2.8-2.4-3.2" stroke="rgba(138,99,255,0.4)" stroke-dasharray="2 1.5"/>
+            </svg>
+        </div>
+        <div>
+            <div class="cs-title">Ridemaster</div>
+            <div class="cs-sub">Real-time group awareness for riders &nbsp; • &nbsp; Flutter + Firebase + Google Maps SDK &nbsp; • &nbsp; Built end-to-end by me</div>
+        </div>
+    </div>
+
+    <div class="cs-tags">
+        <span class="built">Flutter • built</span>
+        <span class="built">Firebase Firestore • built</span>
+        <span class="built">Google Maps SDK • built</span>
+        <span>Product Design</span>
+        <span>System Design</span>
+        <span>Analytics</span>
+    </div>
+
+    <div class="stat-strip">
+        <div class="stat-pill"><div class="sv">3</div><div class="sl2">Ride modes built</div></div>
+        <div class="stat-pill"><div class="sv">Flutter</div><div class="sl2">iOS + Android, one codebase</div></div>
+        <div class="stat-pill"><div class="sv">Firebase</div><div class="sl2">Firestore real-time sync</div></div>
+        <div class="stat-pill"><div class="sv">iOS + Android</div><div class="sl2">Single codebase</div></div>
+    </div>
+
+    <div class="ss-label">App screens</div>
+    <div class="ss-row">
+        <div class="ss-slot">
+            <div class="ss-ico">🏠</div><div class="ss-lbl">Home<br>Start / Join ride</div>
+        </div>
+        <div class="ss-slot">
+            <div class="ss-ico">⚙️</div><div class="ss-lbl">Ride config<br>Type + destination</div>
+        </div>
+        <div class="ss-slot">
+            <div class="ss-ico">🚦</div><div class="ss-lbl">Waiting room<br>Marshal approval</div>
+        </div>
+        <div class="ss-slot">
+            <div class="ss-ico">🗺️</div><div class="ss-lbl">Active ride<br>Group on map</div>
+        </div>
+        <div class="ss-slot">
+            <div class="ss-ico">⚠️</div><div class="ss-lbl">Off-route alert<br>Reroute overlay</div>
+        </div>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab active" onclick="sw('problem')">Problem</button>
+        <button class="tab" onclick="sw('solution')">Solution</button>
+        <button class="tab" onclick="sw('prd')">Product Spec</button>
+        <button class="tab" onclick="sw('architecture')">Architecture + Tech</button>
+        <button class="tab" onclick="sw('analytics')">Analytics</button>
+        <button class="tab" onclick="sw('roadmap')">Roadmap</button>
+    </div>
+
+
+    <div id="tab-problem" class="pane active">
+
+        <div class="fp">"I've done all three — group rides, friend rides, solo. Each one has a different kind of problem. In a group, there's no awareness — you can't signal anyone without calling them mid-ride. With friends, there's no clear leader so nobody is really watching. And when you ride solo, the people back home are just quietly worried about you because they have no way to know you're okay."</div>
+
+        <div class="sec-label">What riders actually use today</div>
+        <div class="wa-grid">
+            <div class="wa-card">
+                <div class="wa-app">
+                    <div class="wa-ico" style="background:rgba(66,133,244,0.12);">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#4285F4" stroke-width="1.3" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M4.5 7h5M7 4.5v5"/></svg>
+                    </div>
+                    <div><div class="wa-name">Google Maps</div><div class="wa-role">Navigation</div></div>
+                </div>
+                <div class="wa-does">Turn-by-turn routing. Works flawlessly — for exactly one person going to exactly one place.</div>
+                <div class="wa-gap">Zero awareness of anyone else on the ride.</div>
+            </div>
+            <div class="wa-card">
+                <div class="wa-app">
+                    <div class="wa-ico" style="background:rgba(37,211,102,0.1);">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#25D366" stroke-width="1.3" stroke-linecap="round"><path d="M7 1.5C3.96 1.5 1.5 3.96 1.5 7c0 1 .27 1.95.74 2.77L1.5 12.5l2.8-.72A5.47 5.47 0 007 12.5c3.04 0 5.5-2.46 5.5-5.5S10.04 1.5 7 1.5z"/></svg>
+                    </div>
+                    <div><div class="wa-name">WhatsApp</div><div class="wa-role">Coordination + relative distance</div></div>
+                </div>
+                <div class="wa-does">Share live location in a group chat. "Where are you?" messages. The actual coordination layer most ride groups depend on.</div>
+                <div class="wa-gap">Requires unlocking your phone and reading a map at speed. This is how accidents happen.</div>
+            </div>
+            <div class="wa-card">
+                <div class="wa-app">
+                    <div class="wa-ico" style="background:rgba(148,148,163,0.1);">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--text-secondary)" stroke-width="1.3" stroke-linecap="round"><path d="M4.5 2.5s-.5 2.5 2.5 2.5 2.5-2.5 2.5-2.5M4.5 2.5v7c0 .8.5 1.5 2.5 1.5s2.5-.7 2.5-1.5v-7"/></svg>
+                    </div>
+                    <div><div class="wa-name">Phone calls</div><div class="wa-role">Emergency fallback</div></div>
+                </div>
+                <div class="wa-does">"Pull over, we lost Ravi." Bluetooth helmets help, but calls still demand full attention at the worst possible moment.</div>
+                <div class="wa-gap">Purely reactive. The problem has already compounded before you can call anyone.</div>
+            </div>
+        </div>
+
+        <div class="note note-amber">Riders have duct-taped three apps together to do what one should do natively. The gaps only show when something goes wrong — which is exactly the worst moment to have a gap.</div>
+
+        <div class="sec-label" style="margin-top:1.8rem;">How it plays out — three riding contexts</div>
+
+        <div class="ctx ctx-g">
+            <div class="ctx-head">
+                <div class="ctx-dot" style="background:var(--accent-purple);"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:#b8aaff;">Group ride</span>
+                <div class="ctx-badge badge-g">Organised • 4–20 riders</div>
+            </div>
+            <div class="scenario">"15 riders leave together. At a fork, the 7th rider follows the wrong car. The tail of the group follows him. Nobody in the front knows for 4 minutes — until someone's phone rings."</div>
+            <div class="pain-list">
+                <div class="pi"><div class="pb" style="background:var(--accent-purple);"></div><p><strong>No misroute signal.</strong> The lead has zero system notification when someone goes off-route. Discovery is accidental.</p></div>
+                <div class="pi"><div class="pb" style="background:var(--accent-purple);"></div><p><strong>The tail follows the wrong person.</strong> Riders follow whoever is ahead, not the lead. One wrong turn at position 7 fragments everyone behind it.</p></div>
+                <div class="pi"><div class="pb" style="background:var(--accent-purple);"></div><p><strong>Recovery is WhatsApp.</strong> The group chat explodes mid-ride. Someone has to stop and type. That person is now also a hazard.</p></div>
+            </div>
+        </div>
+
+        <div class="ctx ctx-f">
+            <div class="ctx-head">
+                <div class="ctx-dot" style="background:#4ade80;"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:#4ade80;">Friend ride</span>
+                <div class="ctx-badge badge-f">Casual • 2–5 riders</div>
+            </div>
+            <div class="scenario">"Riding with 3 friends on a road trip. You know the route, they don't. One takes a wrong exit. You check your mirror — he's gone. You open WhatsApp. You're still moving."</div>
+            <div class="pain-list">
+                <div class="pi"><div class="pb" style="background:#4ade80;"></div><p><strong>No leader, no accountability.</strong> Everyone assumes someone else is watching. Nobody is.</p></div>
+                <div class="pi"><div class="pb" style="background:#4ade80;"></div><p><strong>WhatsApp live location needs checking.</strong> It works — if you open the app, find the chat, and read the map. None of that is safe one-handed at 80km/h.</p></div>
+                <div class="pi"><div class="pb" style="background:#4ade80;"></div><p><strong>Even basic coordination is a group effort.</strong> A fuel stop, food break, or breakdown means opening WhatsApp, pinning a location, waiting for replies — all while someone is pulled over on the side of the road.</p></div>
+            </div>
+        </div>
+
+        <div class="ctx ctx-s">
+            <div class="ctx-head">
+                <div class="ctx-dot" style="background:var(--text-secondary);"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:var(--text-secondary);">Solo ride</span>
+                <div class="ctx-badge badge-s">Independent • unfamiliar routes</div>
+            </div>
+            <div class="scenario">"You're out on a long solo ride through an unfamiliar route. Nobody knows exactly where you are. If something goes wrong — there's no one watching."</div>
+            <div class="pain-list">
+                <div class="pi"><div class="pb" style="background:var(--text-secondary);opacity:0.5;"></div><p><strong>People back home are worried.</strong> There's no passive signal that you're okay. No movement update, no check-in. Just silence until you call.</p></div>
+                <div class="pi"><div class="pb" style="background:var(--text-secondary);opacity:0.5;"></div><p><strong>No safety net.</strong> A breakdown has no broadcast mechanism. Help depends entirely on being seen by someone who stops.</p></div>
+            </div>
+        </div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">What's missing across all three</div>
+        <div class="gap-bridge">
+            <div class="br-row">
+                <div class="br-ico" style="background:rgba(138,99,255,0.1);">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+                </div>
+                <div class="br-text"><h4>Real-time shared awareness</h4><p>Knowing where everyone is — not just yourself. Navigation is solved. Group awareness is not.</p></div>
+            </div>
+            <div class="br-row">
+                <div class="br-ico" style="background:rgba(74,222,128,0.08);">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"><path d="M2 8h12M8 2l6 6-6 6"/></svg>
+                </div>
+                <div class="br-text"><h4>Proactive deviation detection</h4><p>The system should know before the rider does that something has gone wrong — and act immediately, not after the fact.</p></div>
+            </div>
+            <div class="br-row">
+                <div class="br-ico" style="background:rgba(251,146,60,0.08);">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M8 4l5 4-5 4"/></svg>
+                </div>
+                <div class="br-text"><h4>Communication that works in motion</h4><p>Typing WhatsApp at speed is the accident. Any solution has to work with one hand, in one second, eyes on the road.</p></div>
+            </div>
+        </div>
+        <div class="note note-purple" style="margin-top:1rem;">These three gaps — awareness, proactive detection, in-motion communication — are what Ridemaster is built to close. Each ride mode addresses the same root problem in a different social context.</div>
+
+    </div><div id="tab-solution" class="pane">
+
+        <div class="sec-label">Three ride modes</div>
+
+        <div class="mode-card mc-g">
+            <div class="mc-head">
+                <div class="mc-dot" style="background:var(--accent-purple);"></div>
+                <div class="mc-title" style="color:#b8aaff;">Group ride</div>
+                <div class="mc-badge mc-badge-g">Hub and Spoke</div>
+            </div>
+            <div class="mc-desc">One lead rider sets the master route. All riders sync to the same polyline via Firestore real-time listeners. Off-route detection fires per rider — vibration on the deviated rider's device, status flag visible to the whole group. Marshal approves or rejects joiners in the waiting room before the ride starts.</div>
+            <div class="mc-pts">
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:var(--accent-purple);"></div><p>All riders render the same blue polyline — one shared route, no ambiguity</p></div>
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:var(--accent-purple);"></div><p>Reroute goes back to the master route, not the destination — rider rejoins the group</p></div>
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:var(--accent-purple);"></div><p>Marshal sees Off Route status flag for any deviated rider in real time</p></div>
+            </div>
+        </div>
+
+        <div class="mode-card mc-f">
+            <div class="mc-head">
+                <div class="mc-dot" style="background:#4ade80;"></div>
+                <div class="mc-title" style="color:#4ade80;">Friend ride</div>
+                <div class="mc-badge mc-badge-f">Independent segments</div>
+            </div>
+            <div class="mc-desc">Any friend initiates. The master polyline is copied to every participant's sub-document at join time. When someone deviates, only their segment updates — Directions API called from current position directly to destination. No leader needed, no single point of failure.</div>
+            <div class="mc-pts">
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:#4ade80;"></div><p>Each rider owns their own segment — one person losing signal doesn't affect others</p></div>
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:#4ade80;"></div><p>Reroute goes to destination directly — friends can take different paths and still arrive together</p></div>
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:#4ade80;"></div><p>No waiting room, no approval flow — join and ride</p></div>
+            </div>
+        </div>
+
+        <div class="mode-card mc-s">
+            <div class="mc-head">
+                <div class="mc-dot" style="background:var(--text-secondary);"></div>
+                <div class="mc-title" style="color:var(--text-secondary);">Solo ride</div>
+                <div class="mc-badge mc-badge-s">Local only • lightweight</div>
+            </div>
+            <div class="mc-desc">Standard navigation with auto-reroute on deviation. No Firestore group sync — significantly lower battery impact. Polyline stored locally. Same map UI as group modes so switching feels seamless.</div>
+            <div class="mc-pts">
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:var(--text-secondary);opacity:0.5;"></div><p>Emergency contact stored from signup — ready for SOS in v2</p></div>
+                <div class="mc-pt"><div class="mc-pt-dot" style="background:var(--text-secondary);opacity:0.5;"></div><p>No group overhead — faster to start, lighter on battery</p></div>
+            </div>
+        </div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">Quick signals — replacing WhatsApp mid-ride</div>
+        <div class="sig-grid">
+            <div class="sig-card"><div class="sig-ico">⛽</div><div class="sig-name">Fuel stop</div><div class="sig-desc">Need to refuel — group should slow or find a stop</div></div>
+            <div class="sig-card"><div class="sig-ico">🍔</div><div class="sig-name">Food break</div><div class="sig-desc">Suggest stopping at the next dhaba or rest stop</div></div>
+            <div class="sig-card"><div class="sig-ico">🛑</div><div class="sig-name">Stop</div><div class="sig-desc">Pull over now — photo stop, tyre check, anything</div></div>
+            <div class="sig-card"><div class="sig-ico">⚠️</div><div class="sig-name">Breakdown</div><div class="sig-desc">Bike issue — group needs to stop and help</div></div>
+            <div class="sig-card v2"><div class="sig-ico">🆘</div><div class="sig-name">SOS</div><div class="sig-desc">v2 — emergency broadcast to group and contacts</div></div>
+        </div>
+        <div class="note note-amber">1 tap → broadcast to the entire group instantly. The constrained set was deliberate — 4 signals cover every scenario a rider would send at speed, one-handed, without looking down.</div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">Smart alerts</div>
+        <div class="auto-col">
+            <div class="cs-card" style="margin:0;"><h3>📍 Off-route detection</h3><p>Distance from polyline exceeds 50m. Fires per rider — vibrate on the deviated device, red status flag on the group map. Only the deviated rider and the Marshal see the highlight.</p></div>
+            <div class="cs-card" style="margin:0;"><h3>🛑 Unexpected stop</h3><p>Velocity drops below 2m movement threshold for the resting interval. Status flips to "Stopped" in Firestore — visible to the group before anyone has to look back.</p></div>
+            <div class="cs-card" style="margin:0;"><h3>↔️ Relative position</h3><p>Ahead / behind labels computed per rider using progressIndex. Shown as "200m ahead" or "1.2km behind". Zero API cost — pure Haversine geometry.</p></div>
+        </div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">Rider status states</div>
+        <div class="cs-card">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.25);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Moving</span>
+                <span style="background:#16161f;border:1px solid rgba(251,146,60,0.25);color:#fb923c;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Stopped</span>
+                <span style="background:#16161f;border:1px solid rgba(248,113,113,0.25);color:#f87171;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Off Route</span>
+                <span style="background:#16161f;border:1px solid rgba(138,99,255,0.25);color:#b8aaff;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Pending — Group only</span>
+                <span style="background:#16161f;border:1px solid #1a1a24;color:var(--text-secondary);padding:5px 14px;border-radius:20px;font-size:0.78rem;">Finished</span>
+            </div>
+            <p>Status computed on-device in the GPS callback, written to Firestore with merge enabled, and read by all riders on the same real-time listener. Pending is Group-only — the Marshal approves before the ride starts.</p>
+        </div>
+
+    </div><div id="tab-prd" class="pane">
+
+        <div class="prd-statement">
+            <div class="prd-label">Problem statement</div>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <div style="width:8px;height:8px;border-radius:50%;background:var(--accent-purple);margin-top:6px;flex-shrink:0;"></div>
+                    <p style="font-size:0.88rem;color:#b8aaff;line-height:1.65;margin:0;"><span style="font-weight:600;">Group rides</span> have no shared awareness layer — when someone goes off-route, the group has no system-level signal. The only tool is a phone call at 80km/h.</p>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <div style="width:8px;height:8px;border-radius:50%;background:#4ade80;margin-top:6px;flex-shrink:0;"></div>
+                    <p style="font-size:0.88rem;color:#b8aaff;line-height:1.65;margin:0;"><span style="font-weight:600;">Friend rides</span> have no shared route reference and no leader — coordination for every stop, breakdown, or detour falls back to WhatsApp mid-ride.</p>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <div style="width:8px;height:8px;border-radius:50%;background:var(--text-secondary);margin-top:6px;flex-shrink:0;opacity:0.5;"></div>
+                    <p style="font-size:0.88rem;color:#b8aaff;line-height:1.65;margin:0;"><span style="font-weight:600;">Solo rides</span> have no passive safety net — people at home have no way to know the rider is okay unless they call.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-label">Who this is built for</div>
+        <div class="persona-grid">
+
+            <div class="persona-card pc-g">
+                <div class="pc-illo pc-illo-g">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="11" r="5"/>
+                        <path d="M7 32c0-6.075 4.925-11 11-11s11 4.925 11 11"/>
+                        <circle cx="5" cy="14" r="3" stroke="rgba(138,99,255,0.5)"/>
+                        <circle cx="31" cy="14" r="3" stroke="rgba(138,99,255,0.5)"/>
+                        <path d="M2 27c0-2.5 1.5-4 3.5-4.5" stroke="rgba(138,99,255,0.4)" stroke-dasharray="2 1.5"/>
+                        <path d="M34 27c0-2.5-1.5-4-3.5-4.5" stroke="rgba(138,99,255,0.4)" stroke-dasharray="2 1.5"/>
+                    </svg>
+                    <div class="pc-badge pc-badge-g">Marshal</div>
+                </div>
+                <div>
+                    <div class="pc-name" style="color:#b8aaff;">The Marshal</div>
+                    <div class="pc-role">Club organiser • Group ride lead</div>
+                    <div class="pc-desc">Plans the route, briefs the group, and is responsible for everyone arriving together. Has no visibility into whether riders are actually following — only finds out when someone calls or goes missing.</div>
+                </div>
+                <div class="pc-points">
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--accent-purple);"></div><p>Needs to know where every rider is at all times</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--accent-purple);"></div><p>Wants to approve who joins before the ride starts</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--accent-purple);"></div><p>Currently managing everything through calls and WhatsApp groups</p></div>
+                </div>
+                <div class="pc-quote pc-quote-g">"I'm responsible for 15 people on the road. Right now my only tool is my phone."</div>
+            </div>
+
+            <div class="persona-card pc-f">
+                <div class="pc-illo pc-illo-f">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="11" r="5"/>
+                        <circle cx="24" cy="11" r="5"/>
+                        <path d="M2 32c0-5.523 4.477-10 10-10"/>
+                        <path d="M34 32c0-5.523-4.477-10-10-10"/>
+                        <path d="M12 22c0 0 3 2.5 6 0" stroke="rgba(74,222,128,0.6)"/>
+                    </svg>
+                    <div class="pc-badge pc-badge-f">Weekend</div>
+                </div>
+                <div>
+                    <div class="pc-name" style="color:#4ade80;">The Weekend Rider</div>
+                    <div class="pc-role">Friend group • Casual rides</div>
+                    <div class="pc-desc">Rides with a close group of friends on weekends — no fixed leader, no formal route planning. Someone picks a destination, everyone shows up. Coordination happens in the group chat before and during the ride.</div>
+                </div>
+                <div class="pc-points">
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:#4ade80;"></div><p>Wants to ride together without constant check-ins</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:#4ade80;"></div><p>Fuel stops and food breaks decided on the fly — hard to coordinate cleanly</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:#4ade80;"></div><p>No one wants to be the person who calls mid-ride</p></div>
+                </div>
+                <div class="pc-quote pc-quote-f">"We always end up in the group chat mid-ride figuring out where someone went."</div>
+            </div>
+
+            <div class="persona-card pc-s">
+                <div class="pc-illo pc-illo-s">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="11" r="5"/>
+                        <path d="M7 32c0-6.075 4.925-11 11-11s11 4.925 11 11"/>
+                    </svg>
+                    <div style="position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:4px;">
+                        <div style="width:7px;height:7px;border-radius:50%;background:rgba(248,113,113,0.6);"></div>
+                        <span style="font-size:0.65rem;color:rgba(248,113,113,0.7);">no signal home</span>
+                    </div>
+                    <div class="pc-badge pc-badge-s">Solo</div>
+                </div>
+                <div>
+                    <div class="pc-name" style="color:var(--text-primary);">The Solo Rider</div>
+                    <div class="pc-role">Independent • rides alone by choice or necessity</div>
+                    <div class="pc-desc">Rides alone — sometimes because no one else is available, sometimes because the road and the silence are the whole point. Either way, the people back home have no passive way to know they're okay.</div>
+                </div>
+                <div class="pc-points">
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--text-secondary);opacity:0.5;"></div><p>Wants to ride freely without constant "are you okay?" calls</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--text-secondary);opacity:0.5;"></div><p>Family has no passive signal that everything is fine</p></div>
+                    <div class="pc-pt"><div class="pc-pt-dot" style="background:var(--text-secondary);opacity:0.5;"></div><p>In a breakdown or emergency, there is no one watching</p></div>
+                </div>
+                <div class="pc-quote pc-quote-s">"I ride alone for the peace of it. But my family is never really at peace until I'm home."</div>
+            </div>
+
+        </div>
+
+        <div class="sec-label">Goals</div>
+        <div class="goals-card">
+            <div class="goal-item"><div class="goal-dot"></div><p>Riders in a group always know where others are without opening WhatsApp</p></div>
+            <div class="goal-item"><div class="goal-dot"></div><p>Off-route detection fires before a rider is committed to the wrong road</p></div>
+            <div class="goal-item"><div class="goal-dot"></div><p>In-ride communication works in one tap, eyes up, one-handed — no typing required</p></div>
+            <div class="goal-item"><div class="goal-dot"></div><p>Solo riders have a passive safety layer — people at home know they're moving and okay</p></div>
+            <div class="goal-item"><div class="goal-dot"></div><p>Ride completion rate measurably improves over a WhatsApp-only baseline</p></div>
+        </div>
+
+        <div class="sec-label">Constraints</div>
+        <div class="con-grid">
+            <div class="con-card"><div class="cc-ico">📡</div><h4>Data required throughout</h4><p>Active internet needed for the entire ride. No offline mode in v1 — real-time sync is core to the product.</p></div>
+            <div class="con-card"><div class="cc-ico">🔋</div><h4>Battery budget</h4><p>Continuous GPS polling and Firestore writes are expensive. Target less than 15% battery drain per hour over baseline Maps usage.</p></div>
+            <div class="con-card"><div class="cc-ico">💰</div><h4>API cost</h4><p>Directions API calls are billed per request. Reroutes throttled — only trigger after 20m of movement while off-route.</p></div>
+            <div class="con-card"><div class="cc-ico">🛡️</div><h4>One-handed UX</h4><p>Every interaction must work with one hand at riding speed. No typing, no multi-step flows during an active ride.</p></div>
+        </div>
+
+        <div class="sec-label">Key product decisions</div>
+        <div class="dec-list">
+            <div class="dec-card">
+                <div class="dec-num">01</div>
+                <div>
+                    <div class="dec-q">Why Hub-and-Spoke over P2P sync?</div>
+                    <h4>Single source of truth in Firestore</h4>
+                    <p>P2P sync creates conflict resolution complexity when two riders have different GPS accuracy or brief connectivity drops. Firestore as the central router means one canonical route state that all riders read from. When two devices disagree on the polyline, there is one document to trust.</p>
+                </div>
+            </div>
+            <div class="dec-card">
+                <div class="dec-num">02</div>
+                <div>
+                    <div class="dec-q">Why 4 signals instead of a chat input?</div>
+                    <h4>The riding context makes typing impossible</h4>
+                    <p>A rider cannot safely type at speed. The 4-signal set covers every scenario a rider would communicate one-handed. A constrained set also removes ambiguity on the receiving end — the receiver knows exactly what is happening without any interpretation needed.</p>
+                </div>
+            </div>
+            <div class="dec-card">
+                <div class="dec-num">03</div>
+                <div>
+                    <div class="dec-q">Why is Friend ride architecturally different from Group ride?</div>
+                    <h4>Eliminating the single point of failure</h4>
+                    <p>In Group mode the lead's device owns the master polyline. If that device loses signal mid-ride, the route is gone for everyone. In Friend mode the base polyline is copied to every participant's sub-document at join time. Each rider owns their own segment — the group keeps moving regardless of who loses connectivity.</p>
+                </div>
+            </div>
+        </div>
+
+    </div><div id="tab-architecture" class="pane">
+
+        <div class="sec-label">System flows — three ride modes</div>
+
+        <div class="arch-card">
+            <div class="arch-mode-head">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--accent-purple);flex-shrink:0;"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:#b8aaff;">Group ride — Hub and Spoke</span>
+            </div>
+            <div class="arch-flow"><div class="an an-g">Marshal sets origin + destination</div><div class="aa">→</div><div class="an an-g">Directions API call</div><div class="aa">→</div><div class="an an-g">masterPolyline saved to Firestore</div></div>
+            <div class="arch-flow" style="margin-top:8px;"><div class="an an-g">All riders listen to ride doc</div><div class="aa">→</div><div class="an an-g">Decode + render same blue line</div><div class="aa">→</div><div class="an an-g">GPS tick 10s / 60s</div></div>
+            <div class="arch-flow" style="margin-top:8px;"><div class="an some-g">Distance to polyline &gt;50m</div><div class="aa">→</div><div class="an an-g">status → "Off Route"</div><div class="aa">→</div><div class="an an-g">Vibrate + reroute to master route</div></div>
+            <div class="note note-amber" style="margin-top:1rem;margin-bottom:0;">Reroute in Group mode goes to the nearest point on the master route — not the destination. The rider rejoins the group path.</div>
+        </div>
+
+        <div class="arch-card">
+            <div class="arch-mode-head">
+                <div style="width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:#4ade80;">Friend ride — Independent segments</span>
+            </div>
+            <div class="arch-flow"><div class="an an-f">Any friend creates ride</div><div class="aa">→</div><div class="an an-f">masterPolyline generated</div><div class="aa">→</div><div class="an an-f">Copied to each participant's doc</div></div>
+            <div class="arch-flow" style="margin-top:8px;"><div class="an an-f">Friend deviates</div><div class="aa">→</div><div class="an an-f">Directions API: current pos → destination</div><div class="aa">→</div><div class="an an-f">Only their segment updates</div></div>
+            <div class="note note-teal" style="margin-top:1rem;margin-bottom:0;">Reroute goes to the destination directly. Friends can take different roads and still arrive together.</div>
+        </div>
+
+        <div class="arch-card">
+            <div class="arch-mode-head">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--text-secondary);flex-shrink:0;"></div>
+                <span style="font-size:0.95rem;font-weight:600;color:var(--text-secondary);">Solo ride — Local only</span>
+            </div>
+            <div class="arch-flow"><div class="an">Set origin + destination</div><div class="aa">→</div><div class="an">Directions API</div><div class="aa">→</div><div class="an">Polyline stored in own doc only</div></div>
+            <div class="arch-flow" style="margin-top:8px;"><div class="an">Deviation detected</div><div class="aa">→</div><div class="an">Directions API: current pos → destination</div><div class="aa">→</div><div class="an">New polyline rendered locally</div></div>
+            <div class="note note-purple" style="margin-top:1rem;margin-bottom:0;">No group Firestore listeners. GPS polling writes only to own participant doc. Battery impact significantly lower.</div>
+        </div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">Firestore data model</div>
+        <div class="schema-grid">
+            <div class="schema-box">
+<span class="sk">rides</span>/<span class="sv">{rideId}</span>
+  <span class="sk">rideId</span>:         <span class="sv">"847291"</span>
+  <span class="sk">type</span>:           <span class="sv">"Group"|"Friend"|"Solo"</span>
+  <span class="sk">status</span>:         <span class="sv">"waiting"|"active"</span>
+  <span class="sk">leaderName</span>:     <span class="sv">"Shashvat"</span>
+  <span class="sk">masterPolyline</span>: <span class="sv">"enc_string..."</span>
+  <span class="sk">destination</span>:    <span class="sv">"Bhopal, MP"</span>
+  <span class="sk">distance</span>:       <span class="sv">"142 km"</span>
+  <span class="sk">duration</span>:       <span class="sv">"2 hr 40 min"</span>
+  <span class="sk">apiUsage</span>: {
+    <span class="sk">directionsCalls</span>: <span class="sv">0</span>
+    <span class="sk">totalCalls</span>:      <span class="sv">0</span>
+  }
+            </div>
+            <div class="schema-box">
+<span class="sk">participants</span>/<span class="sv">{userId}</span>
+  <span class="sk">rider_name</span>:       <span class="sv">"Shashvat"</span>
+  <span class="sk">role</span>:             <span class="sv">"Lead Marshal"|"Rider"</span>
+  <span class="sk">status</span>:           <span class="sv">"Moving"|"Stopped"|"Off Route"</span>
+  <span class="sk">lat</span>:              <span class="sv">23.2599</span>
+  <span class="sk">lng</span>:              <span class="sv">77.4126</span>
+  <span class="sk">progressIndex</span>:   <span class="sv">142</span> <span class="sc">// position on polyline</span>
+  <span class="sk">currentPolyline</span>: <span class="sv">"enc..."</span> <span class="sc">// Friend/Solo</span>
+  <span class="sk">lastSeen</span>:         <span class="sv">Timestamp</span>
+  <span class="sk">emergency_contact</span>:<span class="sv">"9876543210"</span>
+            </div>
+        </div>
+
+        <div class="cs-divider"></div>
+        <div class="sec-label">Tech stack</div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tc-pill">Flutter • Dart</div>
+                <h4>App framework</h4>
+                <p>Single codebase for iOS and Android. Dark theme with amber accents. Three main screens — Home, Past Rides, Profile. SharedPreferences cache check on launch.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tc-pill">Firebase Firestore</div>
+                <h4>Backend + real-time sync</h4>
+                <p>Real-time listeners on the participants sub-collection. SetOptions merge:true prevents field overwrite on every GPS tick. progressIndex only written when non-null.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tc-pill">Google Maps SDK</div>
+                <h4>Maps + routing</h4>
+                <p>Directions API for polylines. Places Autocomplete with 500ms debounce and UUID session tokens — prevents per-keystroke billing.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tc-pill">Geolocator</div>
+                <h4>Adaptive GPS polling</h4>
+                <p>10s when moving (&gt;2m), 60s when stopped. iOS uses AppleSettings with background location. Android uses 10m distance filter.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tc-pill">Haversine formula</div>
+                <h4>Off-route detection</h4>
+                <p>Point-to-segment distance against every polyline segment. Latitude-corrected at 23°N — no flat degree multiplier. Zero API cost.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tc-pill">SharedPreferences</div>
+                <h4>Local persistence</h4>
+                <p>Rider name and emergency contact cached locally. Ride rejoin checks Firestore for existing participant doc — skips info flow if already joined.</p>
+            </div>
+        </div>
+
+    </div><div id="tab-analytics" class="pane">
+
+        <div class="ns-card">
+            <div class="ns-label">North star metric</div>
+            <div class="ns-metric">Ride completion rate</div>
+            <div class="ns-why">% of rides across all modes that reach "Finished" status for all participants. Covers group, friend, and solo equally. If this goes up, the product is working. If it drops, something fundamental is broken.</div>
+        </div>
+
+        <div class="sec-label">Engagement metrics</div>
+        <div class="four-col" style="margin-bottom:1.8rem;">
+            <div class="metric-card">
+                <div class="mt tier-e">Engagement</div>
+                <div class="ml">Rides per active user / month</div>
+                <div class="mv">Target: 1+</div>
+                <div class="mw">Minimum bar — every active rider should complete at least one ride a month. Below this means riders installed but aren't coming back.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-e">Engagement</div>
+                <div class="ml">Signal tap rate per ride</div>
+                <div class="mv">Target: &gt;1 tap</div>
+                <div class="mw">If signals aren't used, WhatsApp is still winning. Low rate means signals aren't discoverable or the set doesn't cover real needs.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-e">Engagement</div>
+                <div class="ml">Return ride rate</div>
+                <div class="mv">% within 30 days</div>
+                <div class="mw">% of users who complete a ride and start another within 30 days. If someone comes back, the product earned it.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-e">Engagement</div>
+                <div class="ml">Group ride adoption</div>
+                <div class="mv">% of total users</div>
+                <div class="mw">% of users who have done at least one group or friend ride. Tells you whether riders are bringing others onto the platform.</div>
+            </div>
+        </div>
+
+        <div class="sec-label">Guardrail metrics</div>
+        <div class="three-col" style="margin-bottom:1.8rem;">
+            <div class="metric-card">
+                <div class="mt tier-g">Guardrail</div>
+                <div class="ml">Waiting room abandonment</div>
+                <div class="mv">Watch: rising</div>
+                <div class="mw">% of riders who join a waiting room but leave before the ride starts. High rate means pre-ride flow has friction or the Marshal never started.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-g">Guardrail</div>
+                <div class="ml">Ghost rider rate</div>
+                <div class="mv">Target: ~0%</div>
+                <div class="mw">% of riders who joined a ride but had zero GPS movement recorded. The location layer silently failed — rider was invisible to everyone.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-g">Guardrail</div>
+                <div class="ml">Duplicate reroute rate</div>
+                <div class="mv">Watch: &gt;3 per session</div>
+                <div class="mw">% of rides where Directions API is called 3+ times for the same rider quickly. Signals a logic bug silently burning API cost and battery.</div>
+            </div>
+        </div>
+
+        <div class="sec-label">Engineering health</div>
+        <div class="three-col">
+            <div class="metric-card">
+                <div class="mt tier-h">Health</div>
+                <div class="ml">Directions API calls / ride</div>
+                <div class="mv">Watch: cost spike</div>
+                <div class="mw">Tracked in apiUsage.totalCalls. A spike signals reroute logic is triggering redundant calls and burning through quota.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-h">Health</div>
+                <div class="ml">Firestore write failure rate</div>
+                <div class="mv">Target: ~0%</div>
+                <div class="mw">% of GPS broadcasts that land in the catch block in _updateFirestore. A spike means positions silently fail to sync.</div>
+            </div>
+            <div class="metric-card">
+                <div class="mt tier-h">Health</div>
+                <div class="ml">Location sync latency (p95)</div>
+                <div class="mv">Target: &lt;10s now</div>
+                <div class="mw">At current scale 10s write interval is acceptable. As group size grows this tightens — full round trip from GPS tick to position on all other maps.</div>
+            </div>
+        </div>
+
+    </div><div id="tab-roadmap" class="pane">
+
+        <div class="rd-divider">
+            <div class="rd-line"></div>
+            <div class="rd-badge rd-shipped">v1 • Shipped</div>
+            <div class="rd-line"></div>
+        </div>
+        <div class="cs-card" style="margin-bottom:1.8rem;">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Group ride</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Friend ride</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Solo ride</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Quick signals</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Off-route detection</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Real-time group map</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Marshal approval flow</span>
+                <span style="background:#16161f;border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:5px 14px;border-radius:20px;font-size:0.78rem;">Ahead / behind indicators</span>
+            </div>
+        </div>
+
+        <div class="rd-divider">
+            <div class="rd-line"></div>
+            <div class="rd-badge rd-v2">v2 • Safety layer</div>
+            <div class="rd-line"></div>
+        </div>
+        <div class="two-col" style="margin-bottom:1.8rem;">
+            <div class="rm-card">
+                <div class="rm-badge rm-next">Next up</div>
+                <h3>SOS broadcast</h3>
+                <p>One-tap emergency alert. Live location sent to all group riders and the pre-set emergency contact already stored from signup. Trigger: manual tap or inactivity — no movement for 60 seconds after a Stopped status.</p>
+            </div>
+            <div class="rm-card">
+                <div class="rm-badge rm-next">Next up</div>
+                <h3>Battery awareness</h3>
+                <p>Monitor low-battery riders below 15%. Hold last known location when device goes offline — show "Last seen at [location] 4 min ago" on the group map. Android: BatteryManager API. iOS: UIDevice.batteryLevel — background access needs validation first.</p>
+            </div>
+        </div>
+
+        <div class="rd-divider">
+            <div class="rd-line"></div>
+            <div class="rd-badge rd-v3">v3 • Intelligence layer</div>
+            <div class="rd-line"></div>
+        </div>
+        <div class="three-col" style="margin-bottom:1.8rem;">
+            <div class="rm-card">
+                <div class="rm-badge rm-plan">Planned</div>
+                <h3>Ride history</h3>
+                <p>Simple log of past rides — route, duration, group size, who rode. Feeds into the existing Past Rides screen already in the app. No new Firestore structure needed, data is already being written.</p>
+            </div>
+            <div class="rm-card">
+                <div class="rm-badge rm-plan">Planned</div>
+                <h3>Dynamic group ETA</h3>
+                <p>Detect group average speed and recalculate arrival proactively. If the group consistently rides slower than the route assumed, update ETA before it becomes a surprise. Surfaced to Marshal only.</p>
+            </div>
+            <div class="rm-card">
+                <div class="rm-badge rm-plan">Planned</div>
+                <h3>Custom rider markers</h3>
+                <p>Replace default map pins with personalised markers per rider — name initials, avatar colour, or role badge. Makes the group map readable at a glance when multiple riders are clustered in the same area.</p>
+            </div>
+        </div>
+
+        <div class="sec-label">Open questions</div>
+        <div class="oq-card">
+            <div class="oq-row">
+                <div class="oq-dot"></div>
+                <div>
+                    <h4>iOS battery monitoring in background</h4>
+                    <p>iOS restricts UIDevice.batteryLevel when the app is backgrounded. Need to validate whether a background task workaround is feasible before committing to battery awareness in v2.</p>
+                </div>
+            </div>
+            <div class="oq-row">
+                <div class="oq-dot"></div>
+                <div>
+                    <h4>Firestore scale limit for large groups</h4>
+                    <p>Real-time listener cost scales with group size and write frequency. Need load testing beyond 8 simultaneous riders to set a safe cap — or evaluate moving large groups to a batched update model.</p>
+                </div>
+            </div>
+            <div class="oq-row">
+                <div class="oq-dot"></div>
+                <div>
+                    <h4>Optimal GPS polling interval under real conditions</h4>
+                    <p>Current polling is fixed at 10s moving / 60s stopped. A speed-adaptive interval could reduce battery drain significantly. Needs field testing across ghat roads, highways, and city traffic before tuning.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rd-divider">
+            <div class="rd-line"></div>
+            <div class="rd-badge rd-vision">The bigger vision</div>
+            <div class="rd-line"></div>
+        </div>
+        <div class="vision-card">
+            <h3>A platform where ride hosts can list, manage and run commercial group expeditions.</h3>
+            <p>Right now dozens of companies organise group rides across Ladakh, Spiti, Ha Giang, and Chiang Mai circuits. They coordinate everything through WhatsApp groups, spreadsheets, and phone calls. Ridemaster becomes the operating system for these rides — hosts list their expedition, riders discover and join, the entire route runs on the platform from briefing to finish.</p>
+            <div class="vision-grid">
+                <div class="vision-item"><h4>For hosts</h4><p>List rides, manage registrations, brief riders, run the expedition — all in one place.</p></div>
+                <div class="vision-item"><h4>For riders</h4><p>Discover curated expeditions, join with one tap, ride with full group awareness.</p></div>
+                <div class="vision-item"><h4>The opportunity</h4><p>Every Ladakh, Spiti, and Ha Giang circuit currently runs on WhatsApp. That's the gap.</p></div>
+            </div>
+        </div>
+
+        <div class="links-row">
+            <a href="https://github.com/sshashvat" target="_blank" class="lb">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M7 1C3.686 1 1 3.686 1 7c0 2.654 1.72 4.9 4.106 5.694.3.055.41-.13.41-.29v-1.016c-1.67.363-2.02-.806-2.02-.806C3.223 9.89 2.83 9.705 2.83 9.705c-.545-.373.041-.365.041-.365.602.042.919.618.919.618.535.916 1.404.651 1.746.498.054-.387.21-.651.38-.8-1.332-.152-2.732-.666-2.732-2.963 0-.655.234-1.19.618-1.61-.062-.151-.268-.762.058-1.587 0 0 .504-.161 1.65.615A5.75 5.75 0 017 4.5a5.75 5.75 0 011.502.202c1.145-.776 1.648-.615 1.648-.615.327.825.121 1.436.06 1.587.384.42.617.955.617 1.61 0 2.304-1.403 2.81-2.739 2.957.216.186.408.551.408 1.111v1.644c0 .161.109.348.413.29A6.003 6.003 0 0013 7c0-3.314-2.686-6-6-6z"/></svg>
+                GitHub repo
+            </a>
+            <a href="#" class="lb">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="4,2 12,7 4,12"/></svg>
+                App demo video
+            </a>
+            <a href="#" class="lb">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="10" height="10" rx="2"/><path d="M4 5h6M4 7h4"/></svg>
+                System design doc
+            </a>
+        </div>
+
+    </div></div><footer>
+    <div class="footer-links">
+        <a href="mailto:sshashvat.296@gmail.com">sshashvat.296@gmail.com</a>
+        <a href="#">linkedin.com/in/shashvat-suhane</a>
+        <a href="#">github.com/sshashvat</a>
+    </div>
+</footer>
+
+<script>
+function sw(id) {
+    var ids = ['problem', 'solution', 'prd', 'architecture', 'analytics', 'roadmap'];
+    document.querySelectorAll('.tab').forEach(function(t, i) {
+        t.classList.toggle('active', ids[i] === id);
+    });
+    document.querySelectorAll('.pane').forEach(function(p) {
+        p.classList.toggle('active', p.id === 'tab-' + id);
+    });
+    window.scrollTo({ top: document.querySelector('.tab-bar').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
