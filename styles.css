@@ -537,18 +537,21 @@ footer {
 /* Modal window */
 .modal-content {
     background-color: #0d0d12;
-    margin: 3vh auto; /* Centers container cleanly on viewport levels */
+    margin: 3vh auto;
     padding: 24px;
     border: 1px solid rgba(138, 99, 255, 0.3);
     width: 90%; 
-    max-width: 1200px; /* CRITICAL: Prevents charts and grids from stretching out wide */
+    max-width: 1200px;
     border-radius: 24px;
     color: white;
-    height: 90vh; /* Expands screen vertically for comfortable tab bar navigation */
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Drops double browser scrollbars safely */
+    overflow: hidden; 
     position: relative;
+    
+    /* ── ADD THIS SPECIFIC LINE ── */
+    box-sizing: border-box; /* Prevents inside padding from eating up scroll real estate */
 }
 
 /* Close button */

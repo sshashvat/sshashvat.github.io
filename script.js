@@ -72,18 +72,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector(".close-button");
 
     document.addEventListener('click', (e) => {
-        // Look for any element with a data-project attribute (Overdraft OR Ridemaster)
         const target = e.target.closest('[data-project]');
         
         if (target) {
-            // Get the key (e.g., "overdraft" or "ridemaster") from the HTML attribute
             const projectKey = target.getAttribute('data-project');
             
-            // Check if we actually have data for this key in our script
             if (projectData[projectKey]) {
                 modalBody.innerHTML = projectData[projectKey].content;
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
+
+                // ── ADD THIS CONDITIONAL LOGIC HERE ──
+                const modalContent = modal.querySelector('.modal-content');
+                if (projectKey === 'overdraft') {
+                    modalContent.style.overflowY = 'auto'; // Let long text scroll down fully
+                } else {
+                    modalContent.style.overflowY = 'hidden'; // Keep the iframe cleanly locked
+                }
             }
         }
     });
