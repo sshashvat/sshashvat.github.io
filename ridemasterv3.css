@@ -571,12 +571,15 @@ html, body {
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    overflow-y: auto !important; /* Enables independent inside-the-popup scrolling */
+    overflow-y: auto !important;
+    background-color: #050508 !important; /* Enables independent inside-the-popup scrolling */
 }
 body .cs-main {
     padding: 20px 3% !important; /* Forces layout optimization inside parent wrappers */
-    max-width: 100% !important;   /* Strips rigid page margins from window boundaries */
-    margin: 0 !important;
+    max-width: 92% !important;   /* Strips rigid page margins from window boundaries */
+    margin: 0 auto !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
 }
 .tab-bar {
     scrollbar-width: none;

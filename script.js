@@ -31,29 +31,33 @@ window.addEventListener('DOMContentLoaded', () => {
         <div style="background: #16161e; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
             <h4 style="color: #4ade80; margin: 0 0 5px 0; font-size: 0.9rem;">Strategic Recommendations</h4>
             <ul style="font-size: 0.8rem; color: #ccc; line-height: 1.3; padding-left: 15px; margin: 0;">
-                <li>Discovery at point-of-need (< ₹1000)</li>
+                <li>Discovery at point-of-need (&lt; ₹1000)</li>
                 <li>Pricing in ₹ terms ("₹21 for 10 days")</li>
                 <li>Repayment notifications in bank app</li>
             </ul>
         </div>
     </div>
 
-    <div style="margin-bottom: 20px;">
-        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1rem; display: flex; align-items: center;">
+    <div style="margin-bottom: 20px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h3 style="color: #fff; margin: 0 0 10px 0; font-size: 1rem; display: flex; align-items: center; width: 100%; max-width: 864px;">
             <span style="width: 3px; height: 14px; background: #8a63ff; display: inline-block; margin-right: 8px;"></span>
             The Skim Read
         </h3>
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vT912VGWn1Le16bSVBIdji9-ek8QXm984kBOYCoBjnmDPyWxDOZLZUEJBOGB-_sjkYqqD8aeUfQ43Mp/pub?embedded=true" 
-                width="100%" height="550px" style="border: 1px solid #333; border-radius: 12px; background: #fff;"></iframe>
+        
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vS2jHDFbG3jlnFnRkahG7Zs2_LF1F2itQ7t-5erBMTzbcS4QvZ92Uj1SZcakyuyKqdChnzBNa-7KCm4/pub?embedded=true" 
+                width="100%" 
+                height="600px" 
+                style="border: 1px solid #222; border-radius: 12px; background: #fff; display: block; box-sizing: border-box; max-width: 864px;">
+        </iframe>
     </div>
 
-    <div style="text-align: center; padding: 20px; background: rgba(138, 99, 255, 0.03); border-radius: 16px; border: 1px dashed rgba(138, 99, 255, 0.2);">
+    <div style="text-align: center; padding: 20px; background: rgba(138, 99, 255, 0.03); border-radius: 16px; border: 1px dashed rgba(138, 99, 255, 0.2); margin-top: 25px;">
         <a href="https://docs.google.com/document/d/13852lqC9ja-YoqqppNCC6yUrP8dNHLnd7zygjNS0puA/preview" target="_blank" 
            style="display: inline-block; padding: 10px 20px; background: #8a63ff; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
            Read Full Research Paper →
         </a>
     </div>
-`
+    `
 },
         "ridemaster": {
             title: "Ridemaster Case Study",
