@@ -23,9 +23,9 @@
             <div class="logo">SS</div>
             <ul>
                 <li><a href="#work" class="active">Work</a></li>
-                <li><a href="#thinking">Thinking</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="mailto:sshashvat.296@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -158,6 +158,29 @@
 
 
         <!-- --------------------------------------------------------
+             SKILLS STRIP
+             -------------------------------------------------------- -->
+        <section class="skills-strip">
+            <div class="skills-inner">
+                <span class="skills-label">Stack</span>
+                <div class="skills-pills">
+                    <span>SQL</span>
+                    <span>Python</span>
+                    <span>PySpark</span>
+                    <span>Tableau</span>
+                    <span>Looker Studio</span>
+                    <span>Mixpanel</span>
+                    <span>Figma</span>
+                    <span>JIRA</span>
+                    <span>Confluence</span>
+                    <span>Google ADH</span>
+                    <span>The Trade Desk</span>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------------
              SELECTED WORK
              -------------------------------------------------------- -->
         <section id="work" class="work-section">
@@ -197,12 +220,69 @@
                 <div class="proj-arrow">→</div>
             </div>
 
+            <!-- Project: Trading Agent (Coming Soon) -->
+            <div class="project-card project-card--soon">
+                <div class="proj-icon">⚙️</div>
+                <div class="proj-main">
+                    <h3>Trading Agent: Solving Campaign Pacing at Scale <span class="coming-soon-badge">Coming Soon</span></h3>
+                    <p>How I applied full PM methodology — discovery, RICE, system architecture — to fix a problem affecting 82% of AdTech campaigns.</p>
+                </div>
+                <div class="proj-tags">
+                    <span>AdTech</span>
+                    <span>AI Agent</span>
+                    <span>Product Strategy</span>
+                </div>
+                <div class="proj-arrow" style="opacity:0.3">→</div>
+            </div>
+
         </section><!-- /work -->
 
 
-        <!-- --------------------------------------------------------
-             BOTTOM GRID  (Principles + About)
-             -------------------------------------------------------- -->
+        <!-- WORK EXPERIENCE -->
+        <section id="experience" class="experience-section">
+            <div class="section-header">
+                <h2 class="section-heading">Experience</h2>
+            </div>
+            <div class="exp-timeline">
+                <div class="exp-entry">
+                    <div class="exp-left">
+                        <span class="exp-company">MiQ Digital</span>
+                        <span class="exp-tenure">Jul 2021 – Nov 2025</span>
+                        <span class="exp-location">Bengaluru, IN</span>
+                    </div>
+                    <div class="exp-right">
+                        <div class="exp-role-block">
+                            <h3 class="exp-role">Product Analyst <span class="exp-tag">PM Track</span></h3>
+                            <p class="exp-desc">Built and launched TV Intelligence — a unified media planning platform for Linear TV, OTT, and YouTube — and took it live across AU, UK, and CA. Owned PRDs, sprint cycles, UAT, and go-to-market for 5+ major features. Designed Audience Mode, a DSP + ACR targeting engine that improved ad ROI by 25%. Total impact: $4M+ in new and incremental revenue.</p>
+                            <div class="exp-highlights"><span>$4M+ impact</span><span>3 markets</span><span>3x client adoption</span><span>40% faster deployments</span></div>
+                        </div>
+                        <div class="exp-role-block exp-role-block--rotation">
+                            <h3 class="exp-role">APM Rotation — Trading Agent <span class="exp-tag exp-tag--teal">Internal</span></h3>
+                            <p class="exp-desc">Selected to run a full PM cycle on a live pacing problem. Interviewed traders, dug into logs, confirmed 82% of campaigns were mis-pacing. Designed a chatbot-driven recommendation engine with RICE prioritisation, system architecture, and a full traceability matrix. Validated against 100 historical campaigns before any live rollout.</p>
+                            <div class="exp-highlights"><span>Discovery to Architecture</span><span>RICE prioritisation</span><span>82% campaigns impacted</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-divider"></div>
+                <div class="exp-entry">
+                    <div class="exp-left">
+                        <span class="exp-company">Spoton Logistics</span>
+                        <span class="exp-tenure">Sept 2017 – Jul 2021</span>
+                        <span class="exp-location">Bengaluru, IN</span>
+                    </div>
+                    <div class="exp-right">
+                        <div class="exp-role-block">
+                            <h3 class="exp-role">Data Analyst</h3>
+                            <p class="exp-desc">Built optimisation models for hub placement, long-haul routing, and last-mile delivery. Reduced service centre costs by 12%, improved SLA compliance by 18%, and cut transit costs by 7% using K-Means, DDPG RL, and VRP algorithms. Built Dash dashboards adopted by leadership for real-time operations visibility.</p>
+                            <div class="exp-highlights"><span>12% cost reduction</span><span>18% SLA improvement</span><span>RL + VRP algorithms</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /experience -->
+
+
+        <!-- BOTTOM GRID  (Principles + About) -->
         <section class="bottom-grid">
 
             <!-- Principles in Practice -->
@@ -249,7 +329,7 @@
                         <p class="p-desc">I love turning complexity into simple, intuitive experiences that people actually want to use.</p>
                         <div class="p-apply">
                             <span class="dot"></span> How I apply it
-                            <p>Whether it's a flow, a dashboard, or a product — I remove friction at every step.</p>
+                            <p>I streamline digital experiences by eliminating friction at every stage of flows, dashboards, and products.</p>
                         </div>
                     </div>
 
@@ -298,15 +378,16 @@
             <div class="about-box" id="about">
                 <h2>About</h2>
                 <p>
-                    I sit at the intersection of data, technology, and product, which is exactly where I like to be.
-                    Over the past eight years, I have evolved from understanding problems to shaping solutions by
-                    owning every step in between.
+                    8 years in, and the work I find most satisfying is still the same: a messy problem, incomplete data, and figuring out what's actually going on. 
+                    At MiQ Digital I built data products that went live across four markets and moved $4M+ in revenue. 
+                    The part I'm proudest of isn't the number, it's that I understood why the products worked, not just that they did.
                 </p>
                 <p>
-                    I have worked on messy, ambiguous, and cross-functional tasks where strategy meets execution
-                    and ideas become things people actually use. The dots have always connected, and I never needed
-                    a different title to prove it.
+                    I've spent the last year deliberately broadening how I think. 
+                    I wrote a 30-page teardown of India's overdraft market because I wanted to do market sizing and behavioral economics properly, not just talk about them. I built RideMaster solo because I wanted to know what it actually feels like to make product decisions under real constraints.
+                     Both taught me about behavioral design, market structure, and what it takes to ship something real on your own.
                 </p>
+                <p>I'm at a point in my career where I want to go deeper on product ownership. The teardown and the app are evidence of that, not decoration.</p>
                 <a href="assets/Shashvat_Suhane_Resume.pdf" download class="resume-btn">
                     <span class="btn-text">Download Resume</span>
                     <span class="btn-icon">
@@ -330,8 +411,8 @@
     <footer>
         <div class="footer-links">
             <a href="mailto:sshashvat.296@gmail.com">sshashvat.296@gmail.com</a>
-            <a href="#">linkedin.com/in/shashvat-suhane</a>
-            <a href="#">github.com/sshashvat</a>
+            <a href="https://linkedin.com/in/shashvat-suhane" target="_blank">linkedin.com/in/shashvat-suhane</a>
+            <a href="https://github.com/sshashvat" target="_blank">github.com/sshashvat</a>
         </div>
     </footer>
 

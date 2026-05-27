@@ -908,3 +908,193 @@ ux-placeholder img {
     width: 100%;
     margin-top: 1rem;
 }
+
+/* ============================================================
+   SKILLS STRIP
+   ============================================================ */
+.skills-strip {
+    padding: 18px 60px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.02);
+}
+.skills-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.skills-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a63ff;
+    white-space: nowrap;
+}
+.skills-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.skills-pills span {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 3px 12px;
+    transition: all 0.2s ease;
+}
+.skills-pills span:hover {
+    color: #fff;
+    border-color: rgba(138,99,255,0.4);
+    background: rgba(138,99,255,0.08);
+}
+
+/* ============================================================
+   COMING SOON PROJECT CARD
+   ============================================================ */
+.project-card--soon {
+    opacity: 0.55;
+    cursor: default !important;
+    border-style: dashed !important;
+}
+.project-card--soon:hover {
+    transform: none !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+.coming-soon-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(138,99,255,0.15);
+    color: #8a63ff;
+    border: 1px solid rgba(138,99,255,0.3);
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* ============================================================
+   EXPERIENCE SECTION
+   ============================================================ */
+.experience-section {
+    padding: 80px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.exp-timeline {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.exp-entry {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+}
+.exp-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+}
+.exp-company {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+.exp-tenure {
+    font-size: 0.72rem;
+    color: #6b7280;
+}
+.exp-location {
+    font-size: 0.72rem;
+    color: #6b7280;
+}
+.exp-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.exp-role-block {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: border-color 0.2s ease;
+}
+.exp-role-block:hover {
+    border-color: rgba(138,99,255,0.25);
+}
+.exp-role-block--rotation {
+    border-color: rgba(20,184,166,0.15);
+}
+.exp-role-block--rotation:hover {
+    border-color: rgba(20,184,166,0.35);
+}
+.exp-role {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f3f4f6;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.exp-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(138,99,255,0.12);
+    color: #8a63ff;
+    border: 1px solid rgba(138,99,255,0.25);
+    border-radius: 4px;
+    padding: 2px 7px;
+}
+.exp-tag--teal {
+    background: rgba(20,184,166,0.1);
+    color: #2dd4bf;
+    border-color: rgba(20,184,166,0.25);
+}
+.exp-desc {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    line-height: 1.65;
+    margin: 0 0 14px 0;
+}
+.exp-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+.exp-highlights span {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #d1d5db;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 3px 9px;
+}
+.exp-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.05);
+    margin: 0 0;
+}
+
+@media (max-width: 768px) {
+    .skills-strip { padding: 16px 20px; }
+    .experience-section { padding: 60px 20px; }
+    .exp-entry { grid-template-columns: 1fr; gap: 16px; }
+    .exp-left { flex-direction: row; flex-wrap: wrap; gap: 8px; align-items: center; }
+}
