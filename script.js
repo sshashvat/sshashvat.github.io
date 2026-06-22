@@ -1,4 +1,26 @@
 window.addEventListener('DOMContentLoaded', () => {
+
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
     const projectData = {
         "overdraft": {
     title: "Overdraft in India: Why 75M Eligible Users Don't Activate",

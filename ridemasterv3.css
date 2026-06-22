@@ -556,9 +556,62 @@ footer { padding: 3rem 10%; border-top: 1px solid #1a1a24; text-align: center; }
    21. SYSTEM MEDIA RESPONSIVE OVERRIDES
    ============================================================ */
 @media screen and (max-width: 768px) {
-    .cs-main { padding: 1.5rem 6% 3rem; }
-    .two-col, .three-col, .four-col { grid-template-columns: 1fr; }
-    .cs-title { font-size: 1.6rem; }
+    .cs-main { padding: 16px 4% 40px !important; }
+    .cs-hero {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        text-align: center;
+    }
+    .cs-title {
+        font-size: 1.5rem;
+    }
+
+    .cs-sub {
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+
+    .two-col, 
+    .three-col, 
+    .four-col, 
+    .auto-col, 
+    .wa-grid, 
+    .persona-grid, 
+    .sig-grid, 
+    .vision-grid {
+        grid-template-columns: 1fr !important; /* Formats layout cards into a clean, uniform vertical stack */
+        gap: 12px !important;
+    }
+    .stat-strip {
+        grid-template-columns: repeat(2, 1fr); /* Splits statistics cleanly into side-by-side rows */
+        gap: 8px;
+    }
+
+    .stat-pill {
+        padding: 10px 12px;
+    }
+
+    .tab-bar {
+        gap: 4px;
+        padding-bottom: 4px;
+    }
+
+    .tab {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .schema-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .schema-box {
+        font-size: 0.72rem;
+        line-height: 1.8;
+        padding: 12px;
+    }
+    
 }
 
 /* ============================================================
