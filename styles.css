@@ -875,27 +875,25 @@ ux-placeholder img {
 
     /* 2. Flow Container */
     .data-flow-container {
-        height: auto !important;
-        padding: 40px 0 !important;
+        height: 380px !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
+        overflow: visible !important;
         width: 100% !important;
     }
 
     .flow-inner-box {
-        width: 100% !important;
-        max-width: 320px !important; /* SNUG FIT FOR PHONES */
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px !important; /* CREATES DYNAMIC GAP BETWEEN SECTIONS */
+        width: 550px !important;  
+        height: 500px !important; 
         position: relative !important;
+        margin: 0 auto !important;
+        transform: scale(0.58) !important; 
+        transform-origin: center center !important; 
     }
 
     /* Single vertical connecting line via pseudo-element */
-    .flow-inner-box::before {
+    /* .flow-inner-box::before {
         content: '';
         position: absolute;
         top: 0;
@@ -911,52 +909,71 @@ ux-placeholder img {
         );
         z-index: 0;
         opacity: 0.3;
-    }
+    } */
 
     .column-header {
-        position: static !important;
-        transform: none !important;
-        text-align: center !important;
-        font-size: 0.85rem !important;
-        letter-spacing: 2px !important;
-        margin-bottom: 4px !important;
+        position: absolute !important;
+        font-size: 1.1rem !important;
+        letter-spacing: 4px !important;
         display: block !important;
-        width: 100% !important;
     }
 
-    .left-header { order: 1; }
-    .nodes.left  { order: 2; }
-    .user-core   { order: 3; }
-    .right-header{ order: 4; margin-top: 15px !important; }
+    .left-header  { left: 0% !important; top: 50px !important; text-align: left !important; }
+    .right-header { right: 0% !important; top: 50px !important; text-align: right !important; }
+    /* .nodes.left  { order: 2; }
     .nodes.right { order: 5; }
+    
+    .user-core   { order: 3; } */
+    
+    
 
     /* 3. Node Adjustments */
     /* 3. Stack node containers cleanly */
-    .nodes.left,
+    .nodes.left {
+        position: absolute !important;
+        width: 100% !important; /* Opens up the full space so cards can move anywhere */
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        display: block !important;
+    }
+
     .nodes.right {
-        position: static !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
-        width: 100% !important;
-        z-index: 2 !important;
+        position: absolute !important;
+        width: 100% !important; /* Opens up the full space so cards can move anywhere */
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        display: block !important;
     }
 
     .node {
-        position: static !important;
-        transform: none !important;
-        width: 100% !important;
-        text-align: center !important; /* CENTER TEXT FOR MOBILE BALANCE */
-        background: #0d0d12 !important;
-        padding: 12px 16px !important;
-        font-size: 0.88rem !important;
-        border: 1px solid rgba(138, 99, 255, 0.3) !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+        position: absolute !important;
+        width: auto !important; /* Shrink-wraps the card border to its text size */
         box-sizing: border-box !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
+        transform: translateY(-50%) !important; /* Re-locks smooth center tracking */
+        
+        /* Clears out default desktop pinning so you can move things left or right freely */
+        left: auto !important;
+        right: auto !important; 
     }
+
+    .nodes.left .node { left: 0 !important; right: auto !important; text-align: right !important; }
+    .nodes.right .node { right: 0 !important; left: auto !important; text-align: left !important; }
+
+    /* Re-align specific node row heights */
+    .nodes.left .n1 { top: 150px !important; left: -92px !important; }
+    .nodes.left .n2 { top: 215px !important; left: -96px !important; }
+    .nodes.left .n3 { top: 285px !important; left: -96px !important; }
+    .nodes.left .n4 { top: 350px !important; left: -96px !important; }
+
+    /* Right Group (INTO IMPACT) — Prefixed with parent class to beat specificity rule blocks */
+    .nodes.right .n5 { top: 150px !important; right: -90px !important; }
+    .nodes.right .n6 { top: 215px !important; right: -90px !important; }
+    .nodes.right .n7 { top: 285px !important; right: -90px !important; }
+    .nodes.right .n8 { top: 350px !important; right: -90px !important; }
 
     .node-svg {
         width: 16px;
@@ -965,16 +982,11 @@ ux-placeholder img {
 
     /* 5. FIX THE COLLISION: Make user core static so it sits cleanly in the middle of the stack */
     .user-core {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin: 20px 0 !important; /* GIVES BREATHING ROOM ABOVE AND BELOW */
-        z-index: 100 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
+        position: absolute !important;
+        top: 250px !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
     }
 
     /* Keep background glow circles centered */
@@ -991,6 +1003,17 @@ ux-placeholder img {
 
     /* 6. Hide SVG lines — replaced by CSS ::before line */
     .flow-lines {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        
+        /* ── CHANGE THIS FROM 25px TO 4px TO SHIFT THE LINES LEFT ── */
+        left: -70px !important; 
+        
+        width: 500px !important;
+        height: 500px !important;
+    }
+    .flow-inner-box::before {
         display: none !important;
     }
 
