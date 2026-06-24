@@ -24,11 +24,11 @@
    ============================================================ */
 
 :root {
-    --bg-color:       #050508;
-    --card-bg:        #0d0d12;
-    --text-primary:   #ffffff;
-    --text-secondary: #9494a3;
-    --accent-purple:  #8a63ff;
+    --bg-color:       #F4ECE1; 
+    --card-bg:        #FFFFFF; 
+    --text-primary:   #2B1B12; 
+    --text-secondary: #8B7355; 
+    --accent-purple:  #A6502F; 
 }
 
 
@@ -196,16 +196,15 @@ nav a:hover {
 
 .path-line {
     fill: none;
-    stroke: var(--accent-purple);
-    stroke-width: 1.5;
+    stroke: #A6502F;
+    stroke-width: 2.5;
     stroke-linecap: round;
-    opacity: 0.6;
-    filter: drop-shadow(0 0 3px rgba(138, 99, 255, 0.4));
+    opacity: 0.85;
 }
 
 .particle {
     animation: pulseFlow 2s infinite linear;
-    filter: drop-shadow(0 0 5px #fff); /* Light spark effect */
+    filter: drop-shadow(0 0 5px #D98861); /* Warm glowing spark effect */
 }
 
 /* Column headers — pinned above each node group */
@@ -257,18 +256,19 @@ nav a:hover {
 .node {
     position: absolute;
     transform: translateY(-50%); /* Centre-aligns node to its line-end */
-    background: #0d0d12;
-    border: 2px solid rgba(138, 99, 255, 0.4);
+    background: #FFFFFF;
+    border: 2px solid rgba(166, 80, 47, 0.4);
     padding: 10px 16px;
     border-radius: 8px;
     z-index: 110;
     white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(43, 27, 18, 0.1);
 }
 
 .node:hover {
-    background: rgba(138, 99, 255, 0.15);
-    border-color: #8a63ff;
-    box-shadow: 0 0 20px rgba(138, 99, 255, 0.3);
+    background: rgba(166, 80, 47, 0.15);
+    border-color: #C1633D;
+    box-shadow: 0 0 20px rgba(166, 80, 47, 0.3);
     transform: translateY(-2px) scale(1.02);
 }
 
@@ -283,18 +283,6 @@ nav a:hover {
 .n6 { top: 215px; }
 .n7 { top: 285px; }
 .n8 { top: 350px; }
-
-/* Node icon */
-.node-svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 12px;
-    stroke: var(--accent-purple);
-    stroke-width: 2;
-    /* Reduced from 5px to avoid glow bleed */
-    filter: drop-shadow(0 0 1.5px var(--accent-purple));
-}
-
 
 /* ============================================================
    7. DATA FLOW — USER CORE (Centre Element)
@@ -320,7 +308,7 @@ nav a:hover {
     position: absolute;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(138, 99, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(166, 80, 47, 0.15) 0%, transparent 70%);
     z-index: -1;
 }
 
@@ -328,7 +316,7 @@ nav a:hover {
     font-size: 0.7rem;
     font-weight: 900;
     letter-spacing: 2px;
-    color: #ffffff;
+    color: #2B1B12;
     text-transform: uppercase;
     margin: 0;
     line-height: 1;
@@ -338,28 +326,12 @@ nav a:hover {
     transform: none;
 }
 
-.user-core .sub-label {
-    position: relative;
-    bottom: 25px;
-    left: 2%;
-    font-size: 0.5rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    margin-top: 2px;
-}
-
-.user-icon {
-    font-size: 1.8rem;
-    z-index: 102;
-    filter: drop-shadow(0 0 8px rgba(138, 99, 255, 0.6));
-}
-
 .user-icon-circle {
     position: relative;
     width: 80px;
     height: 80px;
     background: var(--bg-color);
-    border: 2px solid var(--accent-purple);
+    border: 2.5px solid var(--accent-purple);
     border-radius: 50%;
     
     /* Flexbox settings */
@@ -371,7 +343,7 @@ nav a:hover {
     /* ADD THIS LINE to push the text down */
     gap: 8px; 
     
-    box-shadow: 0 0 20px rgba(138, 99, 255, 0.2);
+    box-shadow: 0 10px 28px rgba(166, 80, 47, 0.3);
 }
 .user-icon-svg {
     width: 75px;
@@ -379,7 +351,6 @@ nav a:hover {
     color: var(--accent-purple);
     stroke-width: 2;
     flex-shrink: 0;
-    filter: drop-shadow(0 0 5px rgba(138, 99, 255, 0.6));
 }
 
 /* Pulse rings */
@@ -387,15 +358,15 @@ nav a:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--accent-purple);
+    border: 2.5px solid var(--accent-purple);
     border-radius: 50%;
-    animation: ripple 4s linear infinite;
+    animation: ripple 2.4s ease-out infinite;
     animation-fill-mode: backwards; /* Start at 0% state immediately */
-    will-change: transform, opacity;
+    will-change: transform, opacity, border-width;
 }
 
 .pulse-ring.delay {
-    animation-delay: 2s;
+    animation-delay: 1.2s;
 }
 
 
@@ -404,8 +375,9 @@ nav a:hover {
    ============================================================ */
 
 @keyframes ripple {
-    0%   { transform: scale(1);   opacity: 0.6; }
-    100% { transform: scale(2.8); opacity: 0;   }
+    0%   { transform: scale(1);    opacity: 0.6; border-width: 2.5px; }
+    70%  { transform: scale(1.45); opacity: 0;   border-width: 0.5px; }
+    100% { transform: scale(1);    opacity: 0;   border-width: 0.5px; }
 }
 
 @keyframes pulseFlow {
@@ -440,7 +412,7 @@ nav a:hover {
 /* Project card */
 .project-card {
     background: var(--card-bg);
-    border: 1px solid #1a1a24;
+    border: 1px solid #E8DDCC;
     border-radius: 16px;
     padding: 1.5rem 2rem;
     display: flex;
@@ -465,7 +437,7 @@ nav a:hover {
 
 .proj-icon {
     font-size: 1.5rem;
-    background: #1a1a24;
+    background: #FDF8F2;
     padding: 15px;
     border-radius: 12px;
 }
@@ -497,12 +469,12 @@ nav a:hover {
 }
 
 .proj-tags span {
-    background: #16161f;
+    background: #FFFFFF;
     color: var(--accent-purple);
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.75rem;
-    border: 1px solid rgba(138, 99, 255, 0.2);
+    border: 1px solid rgba(166, 80, 47, 0.2);
 }
 
 
@@ -537,7 +509,7 @@ nav a:hover {
 
 footer {
     padding: 3rem 10%;
-    border-top: 1px solid #1a1a24;
+    border-top: 1px solid #E8DDCC;
     text-align: center;
 }
 
@@ -565,20 +537,20 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 5, 8, 0.95);
+    background-color: rgba(43, 27, 18, 0.95);
     backdrop-filter: blur(10px);
 }
 
 /* Modal window */
 .modal-content {
-    background-color: #0d0d12;
+    background-color: #FFFFFF;
     margin: 3vh auto;
     padding: 24px;
-    border: 1px solid rgba(138, 99, 255, 0.3);
+    border: 1px solid rgba(166, 80, 47, 0.3);
     width: 90%; 
     max-width: 1024px;
     border-radius: 24px;
-    color: white;
+    color: #2B1B12;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -596,23 +568,27 @@ footer {
     top: 16px;
     font-size: 32px;
     cursor: pointer;
-    color: #8a63ff;
+    color: #C1633D;
     z-index: 999999;
     line-height: 1;
     transition: color 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
 }
 
 .close-button:hover {
-    color: #ffffff;
+    color: #2B1B12;
 }
 
 /* Resource link button */
 .resource-btn {
     padding: 10px 18px;
-    background: #16161e;
-    border: 1px solid #222;
+    background: #FFFFFF;
+    border: 1px solid #E8DDCC;
     border-radius: 10px;
-    color: #fff;
+    color: #2B1B12;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
@@ -621,14 +597,14 @@ footer {
 
 .resource-btn:hover {
     border-color: var(--accent-purple);
-    background: rgba(138, 99, 255, 0.1);
+    background: rgba(166, 80, 47, 0.1);
 }
 
 /* UX placeholder (mobile phone shape) */
 ux-placeholder {
     aspect-ratio: 9/16;
-    background: #1a1a24;
-    border: 1px dashed #333;
+    background: #FDF8F2;
+    border: 1px dashed #E8DDCC;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -658,25 +634,27 @@ ux-placeholder img {
 
 /* Philosophy card */
 .p-card {
-    background: #0d0d12;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #FFFFFF;
+    border: 1px solid rgba(43, 27, 18, 0.08);
     border-radius: 20px;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(43, 27, 18, 0.06);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .p-card:hover {
+    box-shadow: 0 10px 28px rgba(43, 27, 18, 0.1);
     border-color: var(--accent);
     transform: translateY(-5px);
 }
 
 /* Per-card colour tokens */
-.p-card.purple { --accent: #8a63ff; }
-.p-card.green  { --accent: #4ade80; }
-.p-card.orange { --accent: #fb923c; }
-.p-card.blue   { --accent: #3b82f6; }
+.p-card.purple { --accent: #A6502F; }
+.p-card.green  { --accent: #2F855A; }
+.p-card.orange { --accent: #A16207; }
+.p-card.blue   { --accent: #1D4ED8; }
 
 /* Card header row */
 .p-header {
@@ -690,8 +668,8 @@ ux-placeholder img {
 .p-icon {
     width: 48px;
     height: 48px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(43, 27, 18, 0.03);
+    border: 1px solid rgba(43, 27, 18, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -716,12 +694,12 @@ ux-placeholder img {
 .p-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.15rem;
-    color: #ffffff;
+    color: #2B1B12;
     font-weight: 600;
 }
 
 .p-desc {
-    color: #9494a3;
+    color: #8B7355;
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 24px;
@@ -730,7 +708,7 @@ ux-placeholder img {
 
 /* "How I apply it" footer */
 .p-apply {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(43, 27, 18, 0.08);
     padding-top: 16px;
     font-size: 0.8rem;
     color: var(--accent);
@@ -749,7 +727,7 @@ ux-placeholder img {
 }
 
 .p-apply p {
-    color: #d1d1d1;
+    color: #8B7355;
     font-weight: 400;
     margin-top: 8px;
     line-height: 1.5;
@@ -767,22 +745,22 @@ ux-placeholder img {
     gap: 12px;
     margin-top: 1rem;
     padding: 14px 28px;
-    background: #8a63ff; /* Brand purple */
-    color: #fff;
+    background: #A6502F; /* Brand terracotta */
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     border-radius: 14px;
     /* Spring easing */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px rgba(138, 99, 255, 0.2);
+    border: 1px solid rgba(43, 27, 18, 0.1);
+    box-shadow: 0 10px 20px rgba(166, 80, 47, 0.2);
 }
 
 .resume-btn:hover {
     transform: translateY(-5px);
-    background: #9b7aff; /* Slightly lighter purple */
-    box-shadow: 0 15px 30px rgba(138, 99, 255, 0.4);
+    background: #8B3F22; /* Deeper terracotta on hover */
+    box-shadow: 0 15px 30px rgba(166, 80, 47, 0.4);
 }
 
 .resume-btn:hover .btn-icon {
@@ -829,8 +807,8 @@ ux-placeholder img {
         height: 100vh;
         width: 70%;
         max-width: 280px;
-        background: #0a0a0f;
-        border-left: 1px solid #1a1a24;
+        background: #FFFFFF;
+        border-left: 1px solid #E8DDCC;
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
@@ -847,7 +825,7 @@ ux-placeholder img {
 
     #navMenu li {
         width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(43, 27, 18,0.05);
     }
 
     #navMenu a {
@@ -896,7 +874,7 @@ ux-placeholder img {
     }
 
     /* Single vertical connecting line via pseudo-element */
-    /* .flow-inner-box::before {
+    .flow-inner-box::before {
         content: '';
         position: absolute;
         top: 0;
@@ -911,8 +889,8 @@ ux-placeholder img {
             transparent
         );
         z-index: 0;
-        opacity: 0.3;
-    } */
+        opacity: 0.4;
+    }
 
     .column-header {
         position: absolute !important;
@@ -954,7 +932,8 @@ ux-placeholder img {
 
     .node {
         position: absolute !important;
-        width: auto !important; /* Shrink-wraps the card border to its text size */
+        max-width: 150px !important; /* Caps growth so long labels can't collide with the user circle */
+        white-space: normal !important; /* Allow wrapping instead of overflowing past the cap */
         box-sizing: border-box !important;
         transform: translateY(-50%) !important; /* Re-locks smooth center tracking */
         
@@ -978,11 +957,6 @@ ux-placeholder img {
     .nodes.right .n7 { top: 285px !important; right: -90px !important; }
     .nodes.right .n8 { top: 350px !important; right: -90px !important; }
 
-    .node-svg {
-        width: 16px;
-        height: 16px;
-    }
-
     /* 5. FIX THE COLLISION: Make user core static so it sits cleanly in the middle of the stack */
     .user-core {
         position: absolute !important;
@@ -999,24 +973,15 @@ ux-placeholder img {
     }
 
     @keyframes ripple {
-        0%   { transform: scale(1);   opacity: 0.6; }
-        100% { transform: scale(1.8); opacity: 0;   }
+        0%   { transform: scale(1);    opacity: 0.6; border-width: 2.5px; }
+        70%  { transform: scale(1.45); opacity: 0;   border-width: 0.5px; }
+        100% { transform: scale(1);    opacity: 0;   border-width: 0.5px; }
     }
     
 
-    /* 6. Hide SVG lines — replaced by CSS ::before line */
+    /* 6. Hide SVG curves on mobile — coordinates no longer match the repositioned nodes;
+          the simple ::before connector line above handles this instead */
     .flow-lines {
-        display: block !important;
-        position: absolute !important;
-        top: 0 !important;
-        
-        /* ── CHANGE THIS FROM 25px TO 4px TO SHIFT THE LINES LEFT ── */
-        left: -70px !important; 
-        
-        width: 500px !important;
-        height: 500px !important;
-    }
-    .flow-inner-box::before {
         display: none !important;
     }
 
@@ -1141,9 +1106,9 @@ ux-placeholder img {
    ============================================================ */
 .skills-strip {
     padding: 18px 60px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(43, 27, 18,0.05);
+    border-bottom: 1px solid rgba(43, 27, 18,0.05);
+    background: rgba(43, 27, 18,0.02);
 }
 .skills-inner {
     display: flex;
@@ -1158,7 +1123,7 @@ ux-placeholder img {
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #8a63ff;
+    color: #A6502F;
     white-space: nowrap;
 }
 .skills-pills {
@@ -1168,17 +1133,17 @@ ux-placeholder img {
 }
 .skills-pills span {
     font-size: 0.75rem;
-    color: #9ca3af;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    color: #8B7355;
+    background: rgba(43, 27, 18,0.04);
+    border: 1px solid rgba(43, 27, 18,0.08);
     border-radius: 20px;
     padding: 3px 12px;
     transition: all 0.2s ease;
 }
 .skills-pills span:hover {
-    color: #fff;
-    border-color: rgba(138,99,255,0.4);
-    background: rgba(138,99,255,0.08);
+    color: #2B1B12;
+    border-color: rgba(166, 80, 47,0.4);
+    background: rgba(166, 80, 47,0.08);
 }
 
 /* ============================================================
@@ -1191,16 +1156,16 @@ ux-placeholder img {
 }
 .project-card--soon:hover {
     transform: none !important;
-    border-color: rgba(255,255,255,0.1) !important;
+    border-color: rgba(43, 27, 18,0.1) !important;
 }
 .coming-soon-badge {
     font-size: 0.6rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: rgba(138,99,255,0.15);
-    color: #8a63ff;
-    border: 1px solid rgba(138,99,255,0.3);
+    background: rgba(166, 80, 47,0.15);
+    color: #A6502F;
+    border: 1px solid rgba(166, 80, 47,0.3);
     border-radius: 4px;
     padding: 2px 7px;
     margin-left: 8px;
@@ -1236,15 +1201,15 @@ ux-placeholder img {
 .exp-company {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #fff;
+    color: #2B1B12;
 }
 .exp-tenure {
     font-size: 0.72rem;
-    color: #6b7280;
+    color: #8B7355;
 }
 .exp-location {
     font-size: 0.72rem;
-    color: #6b7280;
+    color: #8B7355;
 }
 .exp-right {
     display: flex;
@@ -1252,25 +1217,25 @@ ux-placeholder img {
     gap: 24px;
 }
 .exp-role-block {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(43, 27, 18,0.02);
+    border: 1px solid rgba(43, 27, 18,0.06);
     border-radius: 12px;
     padding: 20px 24px;
     transition: border-color 0.2s ease;
 }
 .exp-role-block:hover {
-    border-color: rgba(138,99,255,0.25);
+    border-color: rgba(166, 80, 47,0.25);
 }
 .exp-role-block--rotation {
-    border-color: rgba(20,184,166,0.15);
+    border-color: rgba(14, 116, 144,0.15);
 }
 .exp-role-block--rotation:hover {
-    border-color: rgba(20,184,166,0.35);
+    border-color: rgba(14, 116, 144,0.35);
 }
 .exp-role {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #f3f4f6;
+    color: #2B1B12;
     margin: 0 0 10px 0;
     display: flex;
     align-items: center;
@@ -1282,20 +1247,20 @@ ux-placeholder img {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: rgba(138,99,255,0.12);
-    color: #8a63ff;
-    border: 1px solid rgba(138,99,255,0.25);
+    background: rgba(166, 80, 47,0.12);
+    color: #A6502F;
+    border: 1px solid rgba(166, 80, 47,0.25);
     border-radius: 4px;
     padding: 2px 7px;
 }
 .exp-tag--teal {
-    background: rgba(20,184,166,0.1);
-    color: #2dd4bf;
-    border-color: rgba(20,184,166,0.25);
+    background: rgba(14, 116, 144,0.1);
+    color: #0E7490;
+    border-color: rgba(14, 116, 144,0.25);
 }
 .exp-desc {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: #8B7355;
     line-height: 1.65;
     margin: 0 0 14px 0;
 }
@@ -1307,15 +1272,15 @@ ux-placeholder img {
 .exp-highlights span {
     font-size: 0.68rem;
     font-weight: 500;
-    color: #d1d5db;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    color: #8B7355;
+    background: rgba(43, 27, 18,0.04);
+    border: 1px solid rgba(43, 27, 18,0.08);
     border-radius: 4px;
     padding: 3px 9px;
 }
 .exp-divider {
     height: 1px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(43, 27, 18,0.05);
     margin: 0 0;
 }
 
