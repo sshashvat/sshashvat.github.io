@@ -1105,45 +1105,58 @@ ux-placeholder img {
    SKILLS STRIP
    ============================================================ */
 .skills-strip {
-    padding: 18px 60px;
-    border-top: 1px solid rgba(43, 27, 18,0.05);
-    border-bottom: 1px solid rgba(43, 27, 18,0.05);
-    background: rgba(43, 27, 18,0.02);
+    padding: 24px 60px;
+    /* Clean, distinct borders matching your text color hierarchy */
+    border-top: 1px solid rgba(43, 27, 18, 0.08);
+    border-bottom: 1px solid rgba(43, 27, 18, 0.08);
+    /* Solid crisp background to lift the strip cleanly off the sand canvas */
+    background: var(--card-bg); 
 }
+
 .skills-inner {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     max-width: 1100px;
     margin: 0 auto;
     flex-wrap: wrap;
 }
+
 .skills-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #A6502F;
+    color: var(--accent-purple); /* Terracotta highlight label */
     white-space: nowrap;
 }
+
 .skills-pills {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
+
 .skills-pills span {
-    font-size: 0.75rem;
-    color: #8B7355;
-    background: rgba(43, 27, 18,0.04);
-    border: 1px solid rgba(43, 27, 18,0.08);
+    font-size: 0.78rem;
+    font-weight: 500;
+    /* Rich dark espresso text color for perfect readability */
+    color: var(--text-primary); 
+    /* A very subtle tint of your accent color for the pill background */
+    background: rgba(166, 80, 47, 0.05); 
+    border: 1px solid rgba(166, 80, 47, 0.15);
     border-radius: 20px;
-    padding: 3px 12px;
-    transition: all 0.2s ease;
+    padding: 4px 14px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Elegant fill-on-hover interaction tracking */
 .skills-pills span:hover {
-    color: #2B1B12;
-    border-color: rgba(166, 80, 47,0.4);
-    background: rgba(166, 80, 47,0.08);
+    color: var(--card-bg); /* Flips text to crisp white */
+    border-color: var(--accent-purple);
+    background: var(--accent-purple); /* Solid terracotta fill [cite_2.css] */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(166, 80, 47, 0.15);
 }
 
 /* ============================================================
@@ -1285,7 +1298,9 @@ ux-placeholder img {
 }
 
 @media (max-width: 768px) {
-    .skills-strip { padding: 16px 20px; }
+    .skills-strip { padding: 20px 20px; }
+    .skills-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .skills-pills { width: 100%; }
     .experience-section { padding: 60px 20px; }
     .exp-entry { grid-template-columns: 1fr; gap: 16px; }
     .exp-left { flex-direction: row; flex-wrap: wrap; gap: 8px; align-items: center; }
